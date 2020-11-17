@@ -44,7 +44,7 @@ class PostView: UIView {
     func setupContentView(){
         for view in postView!.subviews{
             if let view = view as? ContentView{
-                view.addMedia(url: "https://sun9-25.userapi.com/impf/taPikMJrYxmUguacvsHJb1Wk6JhjSN5gy9epeA/-f5gmKx_cnQ.jpg?size=913x813&quality=96&proxy=1&sign=baff9b1a2aaf827a5c643229010c42ab", type: .pic)
+                view.addMedia(url: "https://sun9-63.userapi.com/impg/7tMpWFLGk2uMrTiqG1dkR1AM8-mSVaX99jXAXQ/YFs2hnhv34M.jpg?size=960x942&quality=96&proxy=1&sign=339a9c0cfcbaa0cb26f027ab1ff2c01c", type: .pic)
             }
         }
     }
