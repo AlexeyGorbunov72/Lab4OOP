@@ -19,6 +19,9 @@
 		CA8757962563EEEF00A05FC3 /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8757952563EEEF00A05FC3 /* PostView.swift */; };
 		CA8757992563EF7700A05FC3 /* BottomPostView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA8757982563EF7700A05FC3 /* BottomPostView.xib */; };
 		CA87579C2563EF8200A05FC3 /* BottomPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA87579B2563EF8200A05FC3 /* BottomPostView.swift */; };
+		CABDEF422564253F00029269 /* MediaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABDEF412564253F00029269 /* MediaView.swift */; };
+		CABDEF45256426D000029269 /* TypesMedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABDEF44256426D000029269 /* TypesMedia.swift */; };
+		CABDEF48256427C900029269 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABDEF47256427C900029269 /* ImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +39,9 @@
 		CA8757952563EEEF00A05FC3 /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
 		CA8757982563EF7700A05FC3 /* BottomPostView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BottomPostView.xib; sourceTree = "<group>"; };
 		CA87579B2563EF8200A05FC3 /* BottomPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomPostView.swift; sourceTree = "<group>"; };
+		CABDEF412564253F00029269 /* MediaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaView.swift; sourceTree = "<group>"; };
+		CABDEF44256426D000029269 /* TypesMedia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypesMedia.swift; sourceTree = "<group>"; };
+		CABDEF47256427C900029269 /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +100,9 @@
 		CA87579F2563F3A400A05FC3 /* ContentView */ = {
 			isa = PBXGroup;
 			children = (
+				CABDEF402564252A00029269 /* MediaView */,
+				CABDEF3F256424F700029269 /* VideoView */,
+				CABDEF3C2564239400029269 /* ImageView */,
 				CA8757922563EEDF00A05FC3 /* ContentView.swift */,
 				CA87578F2563EECD00A05FC3 /* ContentView.xib */,
 			);
@@ -107,6 +116,30 @@
 				CA87579B2563EF8200A05FC3 /* BottomPostView.swift */,
 			);
 			path = BottomPostView;
+			sourceTree = "<group>";
+		};
+		CABDEF3C2564239400029269 /* ImageView */ = {
+			isa = PBXGroup;
+			children = (
+				CABDEF47256427C900029269 /* ImageView.swift */,
+			);
+			path = ImageView;
+			sourceTree = "<group>";
+		};
+		CABDEF3F256424F700029269 /* VideoView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = VideoView;
+			sourceTree = "<group>";
+		};
+		CABDEF402564252A00029269 /* MediaView */ = {
+			isa = PBXGroup;
+			children = (
+				CABDEF412564253F00029269 /* MediaView.swift */,
+				CABDEF44256426D000029269 /* TypesMedia.swift */,
+			);
+			path = MediaView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -182,10 +215,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CABDEF45256426D000029269 /* TypesMedia.swift in Sources */,
+				CABDEF422564253F00029269 /* MediaView.swift in Sources */,
 				CA87577B2563E7A300A05FC3 /* ViewController.swift in Sources */,
 				CA87579C2563EF8200A05FC3 /* BottomPostView.swift in Sources */,
 				CA8757772563E7A300A05FC3 /* AppDelegate.swift in Sources */,
 				CA8757932563EEDF00A05FC3 /* ContentView.swift in Sources */,
+				CABDEF48256427C900029269 /* ImageView.swift in Sources */,
 				CA8757962563EEEF00A05FC3 /* PostView.swift in Sources */,
 				CA8757792563E7A300A05FC3 /* SceneDelegate.swift in Sources */,
 			);
