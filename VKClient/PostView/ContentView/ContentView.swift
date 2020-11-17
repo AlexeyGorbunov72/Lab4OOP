@@ -9,8 +9,19 @@ import UIKit
 
 class ContentView: UIView {
 
-    override func awakeFromNib() {
-        let imageView = ImageView(frame: bounds, urlMedia: "https://sun9-36.userapi.com/3B4fup_5gngeLPZBrlLCX6NgvAalIBuAlF0q-w/rZNfVmj1MOA.jpg")
+
+    func addMedia(url: String, type: TypesMedia){
+        switch type {
+        case .pic:
+            addPicMedia(url: url)
+            break
+            
+        case .video: break
+            
+        }
+    }
+    private func addPicMedia(url: String){
+        let imageView = ImageView(frame: bounds, urlMedia: url)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         addSubview(imageView)
         NSLayoutConstraint.activate([imageView.topAnchor.constraint(equalTo: topAnchor),
@@ -18,5 +29,4 @@ class ContentView: UIView {
                                      imageView.trailingAnchor.constraint(equalTo: trailingAnchor),
                                      imageView.bottomAnchor.constraint(equalTo: bottomAnchor)])
     }
-
 }

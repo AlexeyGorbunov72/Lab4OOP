@@ -4,13 +4,18 @@
 //
 //  Created by Alexey on 17.11.2020.
 //
-
+import AVFoundation
 import UIKit
-
 class ImageView: MediaView {
     var image: UIImage {
         set(newImage){
             imageView.image = newImage
+            for constraint in imageView.constraints{
+                if constraint.firstAttribute == .height{
+                    constraint.constant = AVMakeRect(aspectRatio: self.imageView.image!.size, insideRect: self.superview!.frame).height
+                    print(AVMakeRect(aspectRatio: self.imageView.image!.size, insideRect: self.superview!.frame).height)
+                }
+            }
         }
         get{
             return imageView.image!
@@ -30,6 +35,7 @@ class ImageView: MediaView {
                                      imageView.leadingAnchor.constraint(equalTo: leadingAnchor),
                                      imageView.trailingAnchor.constraint(equalTo: trailingAnchor),
                                      imageView.bottomAnchor.constraint(equalTo: bottomAnchor),
+                                     imageView.heightAnchor.constraint(equalToConstant: 500),
         ])
         loadMedia()
     }
@@ -49,9 +55,7 @@ class ImageView: MediaView {
                                                 options: [.curveEaseOut, .transitionCrossDissolve],
                                                 animations: {
                                                     self.image = UIImage(data: data!)!
-                                                    self.superview!.superview!.layoutSubviews()
-                                                    print(self.imageView.frame.size)
-                                                    print(self.superview?.frame.size)
+                                                    self.superview!.superview!.layoutIfNeeded()
                                                 })
             }
         }

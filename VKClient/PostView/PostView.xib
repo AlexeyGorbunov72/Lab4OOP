@@ -80,7 +80,6 @@
                         <constraint firstAttribute="trailing" secondItem="2oV-c4-Hg3" secondAttribute="trailing" id="Rvp-6e-Cjm"/>
                         <constraint firstAttribute="trailing" secondItem="ex9-zT-L19" secondAttribute="trailing" id="Vyy-dO-wGl"/>
                         <constraint firstItem="ex9-zT-L19" firstAttribute="top" secondItem="2oV-c4-Hg3" secondAttribute="bottom" constant="8" id="amq-cR-Lj3"/>
-                        <constraint firstAttribute="height" relation="lessThanOrEqual" constant="600" id="bqA-hZ-F0S"/>
                         <constraint firstItem="anS-02-FNJ" firstAttribute="top" secondItem="zot-jh-9cY" secondAttribute="top" constant="12" id="cT1-mA-gdn"/>
                         <constraint firstAttribute="trailing" secondItem="anS-02-FNJ" secondAttribute="trailing" constant="-5" id="gZb-WQ-Vcr"/>
                         <constraint firstItem="bPe-TM-lyQ" firstAttribute="leading" secondItem="zot-jh-9cY" secondAttribute="leading" id="i0r-Ax-eox"/>

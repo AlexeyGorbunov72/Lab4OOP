@@ -38,6 +38,15 @@ class PostView: UIView {
             postView.leadingAnchor.constraint(equalTo: leadingAnchor),
             postView.trailingAnchor.constraint(equalTo: trailingAnchor),
         ])
+        setupContentView()
+        layoutSubviews()
+    }
+    func setupContentView(){
+        for view in postView!.subviews{
+            if let view = view as? ContentView{
+                view.addMedia(url: "https://sun9-25.userapi.com/impf/taPikMJrYxmUguacvsHJb1Wk6JhjSN5gy9epeA/-f5gmKx_cnQ.jpg?size=913x813&quality=96&proxy=1&sign=baff9b1a2aaf827a5c643229010c42ab", type: .pic)
+            }
+        }
     }
 
 }
