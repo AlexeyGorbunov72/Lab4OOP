@@ -12,7 +12,7 @@ class ImageView: MediaView {
             imageView.image = newImage
             for constraint in imageView.constraints{
                 if constraint.firstAttribute == .height{
-                    constraint.constant = AVMakeRect(aspectRatio: self.imageView.image!.size, insideRect: CGRect(x: 0, y: 0, width: superview!.frame.size.width, height: CGFloat.infinity)).height
+                    constraint.constant = AVMakeRect(aspectRatio: self.imageView.image!.size, insideRect: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: CGFloat.infinity)).height
                     print(AVMakeRect(aspectRatio: self.imageView.image!.size, insideRect: self.superview!.frame).height)
                 }
             }
@@ -34,7 +34,7 @@ class ImageView: MediaView {
     
     }
     override func didMoveToSuperview() {
-        let imageHeight = AVMakeRect(aspectRatio: self.imageView.image!.size, insideRect: CGRect(x: 0, y: 0, width: superview!.frame.size.width, height: CGFloat.infinity)).height
+        let imageHeight = AVMakeRect(aspectRatio: self.imageView.image!.size, insideRect: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: CGFloat.infinity)).height
         NSLayoutConstraint.activate([imageView.topAnchor.constraint(equalTo: topAnchor),
                                      imageView.leadingAnchor.constraint(equalTo: leadingAnchor),
                                      imageView.trailingAnchor.constraint(equalTo: trailingAnchor),

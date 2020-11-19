@@ -9,21 +9,30 @@ import UIKit
 
 class PostView: UIView {
     var postView: UIView?
-    
+    var post: Post?{
+        didSet{
+            setupContentView(urlToMedia: post?.attachments?[0].photo?.photo604)
+        }
+    }
     @IBOutlet weak var profileImage: UIImageView! {
         didSet{
             self.profileImage.layer.cornerRadius = self.profileImage.bounds.size.height / 2
         }
     }
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        getView()
+    required init(post: Post){
+        super.init(frame: .zero)
+        getView(post: post)
     }
+//    override init(frame: CGRect) {
+//        super.init(frame: frame)
+//        getView()
+//    }
     required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        getView()
+        fatalError("Unsupported method")
+//        super.init(coder: coder)
+//        getView()
     }
-    private func getView(){
+    private func getView(post: Post){
         let viewFromNib = UINib(nibName: "PostView", bundle: nil).instantiate(withOwner: self, options: nil)[0] as? UIView
         postView = viewFromNib!.subviews[0]
         guard let postView = postView else {
@@ -38,13 +47,16 @@ class PostView: UIView {
             postView.leadingAnchor.constraint(equalTo: leadingAnchor),
             postView.trailingAnchor.constraint(equalTo: trailingAnchor),
         ])
-        setupContentView()
+        setupContentView(urlToMedia: post.attachments?[0].photo?.photo604)
         layoutSubviews()
     }
-    func setupContentView(){
+    func setupContentView(urlToMedia: String?){
+        guard let urlToMedia = urlToMedia else {
+            return
+        }
         for view in postView!.subviews{
             if let view = view as? ContentView{
-                view.addMedia(url: "https://sun9-63.userapi.com/impg/7tMpWFLGk2uMrTiqG1dkR1AM8-mSVaX99jXAXQ/YFs2hnhv34M.jpg?size=960x942&quality=96&proxy=1&sign=339a9c0cfcbaa0cb26f027ab1ff2c01c", type: .pic)
+                view.addMedia(url: urlToMedia, type: .pic)
             }
         }
     }
