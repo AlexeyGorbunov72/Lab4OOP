@@ -16,7 +16,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         feed.delegate = self
         feed.dataSource = self
         feed.rowHeight = UITableView.automaticDimension
-        feed.estimatedRowHeight = 300
+        feed.estimatedRowHeight = 1488
         feed.register(FeedTableViewCell.self, forCellReuseIdentifier: "feedCell")
         Api.getFeed(){[weak self] response in
             guard let self = self else {

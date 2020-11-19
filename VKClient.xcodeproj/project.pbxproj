@@ -26,6 +26,7 @@
 		CAFB23AF25665DA7008F5CEF /* client.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFB23AE25665DA7008F5CEF /* client.swift */; };
 		CAFB23B225665DB4008F5CEF /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFB23B125665DB4008F5CEF /* Api.swift */; };
 		CAFB23B925668DF1008F5CEF /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFB23B725668DF1008F5CEF /* FeedTableViewCell.swift */; };
+		CAFB23C02566B489008F5CEF /* PostViewErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFB23BF2566B489008F5CEF /* PostViewErrors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		CAFB23AE25665DA7008F5CEF /* client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = client.swift; sourceTree = "<group>"; };
 		CAFB23B125665DB4008F5CEF /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
 		CAFB23B725668DF1008F5CEF /* FeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
+		CAFB23BF2566B489008F5CEF /* PostViewErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewErrors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 		CA8757752563E7A300A05FC3 /* VKClient */ = {
 			isa = PBXGroup;
 			children = (
+				CAFB23BE2566B472008F5CEF /* Errors */,
 				CAFB23B625668DD4008F5CEF /* FeedItem */,
 				CAFB23A225665CE9008F5CEF /* VK */,
 				CA87579E2563F37700A05FC3 /* PostView */,
@@ -170,6 +173,14 @@
 			path = FeedItem;
 			sourceTree = "<group>";
 		};
+		CAFB23BE2566B472008F5CEF /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				CAFB23BF2566B489008F5CEF /* PostViewErrors.swift */,
+			);
+			path = Errors;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -252,6 +263,7 @@
 				CAFB23B225665DB4008F5CEF /* Api.swift in Sources */,
 				CAFB23AF25665DA7008F5CEF /* client.swift in Sources */,
 				CA8757772563E7A300A05FC3 /* AppDelegate.swift in Sources */,
+				CAFB23C02566B489008F5CEF /* PostViewErrors.swift in Sources */,
 				CA8757932563EEDF00A05FC3 /* ContentView.swift in Sources */,
 				CABDEF48256427C900029269 /* ImageView.swift in Sources */,
 				CA8757962563EEEF00A05FC3 /* PostView.swift in Sources */,

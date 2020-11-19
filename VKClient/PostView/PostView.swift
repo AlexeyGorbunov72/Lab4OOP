@@ -9,11 +9,11 @@ import UIKit
 
 class PostView: UIView {
     var postView: UIView?
-    var post: Post?{
-        didSet{
-            setupContentView(urlToMedia: post?.attachments?[0].photo?.photo604)
-        }
-    }
+//    var post: Post?{
+//        didSet{
+//            setupContentView(urlToMedia: post?.attachments?[0].photo?.photo604)
+//        }
+//    }
     @IBOutlet weak var profileImage: UIImageView! {
         didSet{
             self.profileImage.layer.cornerRadius = self.profileImage.bounds.size.height / 2
@@ -23,12 +23,9 @@ class PostView: UIView {
         super.init(frame: .zero)
         getView(post: post)
     }
-//    override init(frame: CGRect) {
-//        super.init(frame: frame)
-//        getView()
-//    }
+
     required init?(coder: NSCoder) {
-        fatalError("Unsupported method")
+        fatalError("Unsupported init")
 //        super.init(coder: coder)
 //        getView()
     }
@@ -47,16 +44,17 @@ class PostView: UIView {
             postView.leadingAnchor.constraint(equalTo: leadingAnchor),
             postView.trailingAnchor.constraint(equalTo: trailingAnchor),
         ])
-        setupContentView(urlToMedia: post.attachments?[0].photo?.photo604)
+        setupContentView(attachment: post.attachments?[0])
         layoutSubviews()
     }
-    func setupContentView(urlToMedia: String?){
-        guard let urlToMedia = urlToMedia else {
+    func setupContentView(attachment: Attachment?){
+        guard let attachment = attachment else {
             return
         }
         for view in postView!.subviews{
             if let view = view as? ContentView{
-                view.addMedia(url: urlToMedia, type: .pic)
+                
+                view.addMedia(attachment: attachment)
             }
         }
     }

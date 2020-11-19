@@ -51,7 +51,7 @@ struct Post: Codable{
 }
 
 struct Attachment: Codable{
-    var type: String
+    var type: ContentType
     var photo: Photo?
 }
 struct Photo: Codable{
@@ -66,4 +66,10 @@ struct Group: Codable{
     var id: Int
     var name: String
     var photo50: String
+}
+
+enum ContentType: String, Codable{
+    case photo
+    case video
+    case link
 }
