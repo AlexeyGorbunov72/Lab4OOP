@@ -7,23 +7,35 @@
 import AVFoundation
 import UIKit
 class ImageView: MediaView {
-    var image: UIImage {
+    var image: UIImage? {
         set(newImage){
             imageView.image = newImage
         }
         get{
-            return imageView.image!
+            return imageView.image
         }
     }
     var imageView: UIImageView
     
     override init(attachment: Attachment) {
+        
         imageView = UIImageView()
         super.init(attachment: attachment)
-        image = UIImage(named: "loading")!
+        translatesAutoresizingMaskIntoConstraints = false
+        try? getPhoto(needsPrePhoto: true){ [weak self] picData in
+            guard let self = self else{
+                return
+            }
+            DispatchQueue.main.async {
+                if self.image == nil{
+                    self.image = UIImage(data: picData)!
+                }
+                
+            }
+        }
+        
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
-        clipsToBounds = true
         addSubview(imageView)
         let imageHeight = getResizedHeight()
         NSLayoutConstraint.activate([imageView.topAnchor.constraint(equalTo: topAnchor),
@@ -32,14 +44,9 @@ class ImageView: MediaView {
                                      imageView.bottomAnchor.constraint(equalTo: bottomAnchor),
                                      imageView.heightAnchor.constraint(equalToConstant: imageHeight),
         ])
+        
         setUpMedia()
     }
-//    override func didMoveToSuperview() {
-//
-//
-//        layoutSubviews()
-//        setUpMedia()
-//    }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

@@ -16,19 +16,30 @@ class ContentView: UIView {
             addPicMedia(attachment: attachment)
             break
             
-        case .video: break
+        case .video:
+            addPicMedia(attachment: attachment)
+            break
             
         case .link:
             break
         }
     }
     private func addPicMedia(attachment: Attachment){
-        let imageView = ImageView(attachment: attachment)
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(imageView)
-        NSLayoutConstraint.activate([imageView.topAnchor.constraint(equalTo: topAnchor),
-                                     imageView.leadingAnchor.constraint(equalTo: leadingAnchor),
-                                     imageView.trailingAnchor.constraint(equalTo: trailingAnchor),
-                                     imageView.bottomAnchor.constraint(equalTo: bottomAnchor)])
+        var imageView: ImageView?
+        if attachment.type == .photo{
+            imageView = ImageView(attachment: attachment)
+        }
+        if attachment.type == .video{
+            imageView = VideoView(attachment: attachment)
+        }
+        guard let unwarpedImageView = imageView else {
+            return
+        }
+        unwarpedImageView.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(unwarpedImageView)
+        NSLayoutConstraint.activate([unwarpedImageView.topAnchor.constraint(equalTo: topAnchor),
+                                     unwarpedImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
+                                     unwarpedImageView.trailingAnchor.constraint(equalTo: trailingAnchor),
+                                     unwarpedImageView.bottomAnchor.constraint(equalTo: bottomAnchor)])
     }
 }

@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -10,7 +11,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PostView" customModule="VKClient" customModuleProvider="target">
             <connections>
+                <outlet property="posterName" destination="fQf-Od-6ln" id="2Lp-TD-QHf"/>
                 <outlet property="profileImage" destination="zs3-GI-zRz" id="O3y-dW-zU9"/>
+                <outlet property="text" destination="wQ0-xJ-xVS" id="NRN-CS-cAG"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -82,12 +85,12 @@
                             <rect key="frame" x="0.0" y="308" width="414" height="64"/>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2oV-c4-Hg3">
-                            <rect key="frame" x="12" y="78" width="390" height="82"/>
+                            <rect key="frame" x="12" y="78" width="390" height="38"/>
                             <subviews>
-                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="люблю просто пизце bts девочки я ебала. Мои любимые мальчики ❤❤❤❤❤❤❤❤❤❤❤" translatesAutoresizingMaskIntoConstraints="NO" id="wQ0-xJ-xVS">
-                                    <rect key="frame" x="0.0" y="0.0" width="390" height="82"/>
+                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wQ0-xJ-xVS">
+                                    <rect key="frame" x="0.0" y="0.0" width="390" height="38"/>
                                     <color key="textColor" systemColor="labelColor"/>
-                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 </textView>
                             </subviews>

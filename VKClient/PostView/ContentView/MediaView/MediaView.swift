@@ -18,12 +18,23 @@ class MediaView: UIView{
         super.init(frame: .zero)
         
     }
-    func getPhoto(competition: @escaping (Data) -> Void) throws{
-        if let photo = attachment.photo{
+    func getPhoto( needsPrePhoto: Bool = false, competition: @escaping (Data) -> Void) throws{
+        var content: Picture?
+        if let pic = attachment.photo{
+            content = pic
+        }
+        if let video = attachment.video{
+            content = video
+        }
+        if let content = content{
             let config = URLSessionConfiguration.default
             config.waitsForConnectivity = true
             config.timeoutIntervalForResource = 10
-            guard let url = URL(string: photo.photo604) else {
+            var stringUrl = content.photo
+            if needsPrePhoto{
+                stringUrl = content.prePhoto
+            }
+            guard let url = URL(string: stringUrl) else {
                 throw PostViewErrors.invalidLink
             }
             URLSession(configuration: config).dataTask(with: url) { data, response, error in
@@ -31,27 +42,30 @@ class MediaView: UIView{
                     competition(data)
                 }
             }.resume()
+        } else {
+            throw PostViewErrors.cantConvertAttachment
         }
         
-        throw PostViewErrors.cantConvertAttachment
+        
     }
     func getResizedHeight() -> CGFloat{
         switch attachment.type{
         
         case .photo:
-            return resizeImage(photo: attachment.photo!)
+            return resizeImage(image: attachment.photo!)
             
         case .video:
-            break
+            4
+            return resizeImage(image: attachment.video!)
         case .link:
             break
         }
         return CGFloat(1488.0)
     }
-    private func resizeImage(photo: Photo) -> CGFloat{
+    private func resizeImage(image: Picture) -> CGFloat{
         let scale = UIScreen.main.scale
-        let width = CGFloat(photo.width) / scale
-        let height = CGFloat(photo.height) / scale
+        let width = CGFloat(image.width) / scale
+        let height = CGFloat(image.height) / scale
         let photoSize = CGSize(width: width, height: height)
         let imageHeight = AVMakeRect(aspectRatio: photoSize, insideRect: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: CGFloat.infinity)).height
         return imageHeight

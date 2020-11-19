@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CA483F6A2566EC2A00A0EEFE /* VideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA483F692566EC2A00A0EEFE /* VideoView.swift */; };
+		CA483F712566F05A00A0EEFE /* VideoViewConcentrate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA483F702566F05A00A0EEFE /* VideoViewConcentrate.swift */; };
 		CA8757772563E7A300A05FC3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8757762563E7A300A05FC3 /* AppDelegate.swift */; };
 		CA8757792563E7A300A05FC3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8757782563E7A300A05FC3 /* SceneDelegate.swift */; };
 		CA87577B2563E7A300A05FC3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA87577A2563E7A300A05FC3 /* ViewController.swift */; };
@@ -30,6 +32,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CA483F692566EC2A00A0EEFE /* VideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoView.swift; sourceTree = "<group>"; };
+		CA483F702566F05A00A0EEFE /* VideoViewConcentrate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewConcentrate.swift; sourceTree = "<group>"; };
 		CA8757732563E7A300A05FC3 /* VKClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VKClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA8757762563E7A300A05FC3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CA8757782563E7A300A05FC3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -142,6 +146,8 @@
 		CABDEF3F256424F700029269 /* VideoView */ = {
 			isa = PBXGroup;
 			children = (
+				CA483F692566EC2A00A0EEFE /* VideoView.swift */,
+				CA483F702566F05A00A0EEFE /* VideoViewConcentrate.swift */,
 			);
 			path = VideoView;
 			sourceTree = "<group>";
@@ -260,12 +266,14 @@
 				CA87579C2563EF8200A05FC3 /* BottomPostView.swift in Sources */,
 				CAFB23AA25665D24008F5CEF /* vk.swift in Sources */,
 				CAFB23B925668DF1008F5CEF /* FeedTableViewCell.swift in Sources */,
+				CA483F6A2566EC2A00A0EEFE /* VideoView.swift in Sources */,
 				CAFB23B225665DB4008F5CEF /* Api.swift in Sources */,
 				CAFB23AF25665DA7008F5CEF /* client.swift in Sources */,
 				CA8757772563E7A300A05FC3 /* AppDelegate.swift in Sources */,
 				CAFB23C02566B489008F5CEF /* PostViewErrors.swift in Sources */,
 				CA8757932563EEDF00A05FC3 /* ContentView.swift in Sources */,
 				CABDEF48256427C900029269 /* ImageView.swift in Sources */,
+				CA483F712566F05A00A0EEFE /* VideoViewConcentrate.swift in Sources */,
 				CA8757962563EEEF00A05FC3 /* PostView.swift in Sources */,
 				CA8757792563E7A300A05FC3 /* SceneDelegate.swift in Sources */,
 			);

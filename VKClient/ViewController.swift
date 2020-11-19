@@ -18,17 +18,20 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         feed.rowHeight = UITableView.automaticDimension
         feed.estimatedRowHeight = 1488
         feed.register(FeedTableViewCell.self, forCellReuseIdentifier: "feedCell")
+        loadSomeFeed()
+
+    }
+    func loadSomeFeed(){
         Api.getFeed(){[weak self] response in
             guard let self = self else {
                 return
             }
-            self.posts = response.items
+            self.posts += response.items
             DispatchQueue.main.async {
                 self.feed.reloadData()
             }
             
         }
-
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return posts.count
@@ -38,7 +41,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let post = posts[indexPath.row]
         let feedCell = feed
             .dequeueReusableCell(withIdentifier: "feedCell", for: indexPath) as! FeedTableViewCell
+        print(indexPath.row)
         feedCell.addPostView(post: post)
+        feedCell.selectionStyle = .none
+        feedCell.clipsToBounds = true
+        if abs(posts.count - indexPath.row) < 10{
+            DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+                self?.loadSomeFeed()
+            }
+            
+        }
         return feedCell
     }
 }
