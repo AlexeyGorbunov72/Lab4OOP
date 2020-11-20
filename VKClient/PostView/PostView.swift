@@ -18,8 +18,10 @@ class PostView: UIView {
     }
     @IBOutlet weak var posterName: UILabel!
     @IBOutlet weak var text: UITextView!
+    @IBOutlet weak var timeLabel: UILabel!
     required init(post: Post){
         super.init(frame: .zero)
+        
         getView(post: post)
         setupOutlets(post: post)
     }
@@ -47,6 +49,7 @@ class PostView: UIView {
         }
     }
     private func getView(post: Post){
+        
         let viewFromNib = UINib(nibName: "PostView", bundle: nil).instantiate(withOwner: self, options: nil)[0] as? UIView
         postView = viewFromNib!.subviews[0]
         guard let postView = postView else {

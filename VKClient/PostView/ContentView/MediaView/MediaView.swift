@@ -16,7 +16,13 @@ class MediaView: UIView{
     init(attachment: Attachment){
         self.attachment = attachment
         super.init(frame: .zero)
+        isUserInteractionEnabled = true
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(self.didPressOnView(_:)))
+        addGestureRecognizer(gesture)
         
+    }
+    @objc func didPressOnView(_ sender: UITapGestureRecognizer? = nil){
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "mediaViewDidPress"), object: nil, userInfo: ["attachment": attachment])
     }
     func getPhoto( needsPrePhoto: Bool = false, competition: @escaping (Data) -> Void) throws{
         var content: Picture?
@@ -55,12 +61,11 @@ class MediaView: UIView{
             return resizeImage(image: attachment.photo!)
             
         case .video:
-            4
             return resizeImage(image: attachment.video!)
         case .link:
             break
         }
-        return CGFloat(1488.0)
+        return CGFloat(1400.0)
     }
     private func resizeImage(image: Picture) -> CGFloat{
         let scale = UIScreen.main.scale

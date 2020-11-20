@@ -24,9 +24,9 @@ class Api{
         var url: URL?
         if let nextForm = nextFrom{
             
-            url = URL(string: "https://api.vk.com/method/newsfeed.get?count=\(count)&start_from=" + nextForm + "&v=5.52&access_token=\(accessToken)")
+            url = URL(string: "https://api.vk.com/method/newsfeed.get?filters=post&count=\(count)&start_from=" + nextForm + "&v=5.52&access_token=\(accessToken)")
         } else{
-            url = URL(string: "https://api.vk.com/method/newsfeed.get?count=\(count)&v=5.52&access_token=\(accessToken)")
+            url = URL(string: "https://api.vk.com/method/newsfeed.get?filters=post&count=\(count)&v=5.52&access_token=\(accessToken)")
         }
         guard let unwarpedUrl = url else{
             return
@@ -81,6 +81,33 @@ class Api{
         }
         return "?"
     }
+    func getVideoUrlByOvnerId(ownerId: Int32, completion: @escaping (String) -> Void){
+        let url = URL(string: "https://api.vk.com/method/video.get?owner_id=\(ownerId)&count=1&v=5.52&access_token=\(accessToken)")
+        let session = URLSession.shared
+        if let unwarpedUrl = url{
+            let task = session.dataTask(with: unwarpedUrl){ data, response, error in
+            let jsonDecoder = JSONDecoder()
+            jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
+            if let data = data{
+                print(String(data: data, encoding: .utf8)!)
+                let model = try! jsonDecoder.decode(ModelVideo.self, from: data)
+                completion(model.response.items[0].player)
+            }
+        }
+            task.resume()
+        }
+        
+    }
+}
+
+struct ModelVideo: Codable{
+    var response: VideoResponse
+}
+struct VideoResponse: Codable {
+    var items: [Item]
+}
+struct Item: Codable{
+    var player: String
 }
 struct Model: Codable{
     var response: Response
@@ -123,6 +150,7 @@ struct Video: Codable, Picture{
     var title: String
     var views: Int
     var prePhoto: String
+    var ownerId: Int32
     enum CodingKeys: String, CodingKey {
         case photo = "firstFrame1280"
         case prePhoto = "firstFrame130"
@@ -131,6 +159,7 @@ struct Video: Codable, Picture{
         case duration
         case title
         case views
+        case ownerId
     }
     
 }

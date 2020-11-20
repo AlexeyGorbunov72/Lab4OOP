@@ -11,7 +11,7 @@
 		CA483F712566F05A00A0EEFE /* VideoViewConcentrate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA483F702566F05A00A0EEFE /* VideoViewConcentrate.swift */; };
 		CA8757772563E7A300A05FC3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8757762563E7A300A05FC3 /* AppDelegate.swift */; };
 		CA8757792563E7A300A05FC3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8757782563E7A300A05FC3 /* SceneDelegate.swift */; };
-		CA87577B2563E7A300A05FC3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA87577A2563E7A300A05FC3 /* ViewController.swift */; };
+		CA87577B2563E7A300A05FC3 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA87577A2563E7A300A05FC3 /* FeedViewController.swift */; };
 		CA87577E2563E7A300A05FC3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA87577C2563E7A300A05FC3 /* Main.storyboard */; };
 		CA8757802563E7A700A05FC3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA87577F2563E7A700A05FC3 /* Assets.xcassets */; };
 		CA8757832563E7A700A05FC3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA8757812563E7A700A05FC3 /* LaunchScreen.storyboard */; };
@@ -25,8 +25,9 @@
 		CABDEF45256426D000029269 /* TypesMedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABDEF44256426D000029269 /* TypesMedia.swift */; };
 		CABDEF48256427C900029269 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABDEF47256427C900029269 /* ImageView.swift */; };
 		CAFA4E132567CF7E005768CC /* ShowCntentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFA4E122567CF7E005768CC /* ShowCntentController.swift */; };
+		CAFA4E162567EFF2005768CC /* FeedViewControllerConcentrate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFA4E152567EFF2005768CC /* FeedViewControllerConcentrate.swift */; };
+		CAFA4E1A2567F3F8005768CC /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFA4E192567F3F8005768CC /* Notification.swift */; };
 		CAFB23AA25665D24008F5CEF /* vk.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFB23A925665D24008F5CEF /* vk.swift */; };
-		CAFB23AF25665DA7008F5CEF /* client.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFB23AE25665DA7008F5CEF /* client.swift */; };
 		CAFB23B225665DB4008F5CEF /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFB23B125665DB4008F5CEF /* Api.swift */; };
 		CAFB23B925668DF1008F5CEF /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFB23B725668DF1008F5CEF /* FeedTableViewCell.swift */; };
 		CAFB23C02566B489008F5CEF /* PostViewErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFB23BF2566B489008F5CEF /* PostViewErrors.swift */; };
@@ -38,7 +39,7 @@
 		CA8757732563E7A300A05FC3 /* VKClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VKClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA8757762563E7A300A05FC3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CA8757782563E7A300A05FC3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		CA87577A2563E7A300A05FC3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CA87577A2563E7A300A05FC3 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		CA87577D2563E7A300A05FC3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CA87577F2563E7A700A05FC3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CA8757822563E7A700A05FC3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -53,8 +54,9 @@
 		CABDEF44256426D000029269 /* TypesMedia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypesMedia.swift; sourceTree = "<group>"; };
 		CABDEF47256427C900029269 /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 		CAFA4E122567CF7E005768CC /* ShowCntentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowCntentController.swift; sourceTree = "<group>"; };
+		CAFA4E152567EFF2005768CC /* FeedViewControllerConcentrate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewControllerConcentrate.swift; sourceTree = "<group>"; };
+		CAFA4E192567F3F8005768CC /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		CAFB23A925665D24008F5CEF /* vk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vk.swift; sourceTree = "<group>"; };
-		CAFB23AE25665DA7008F5CEF /* client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = client.swift; sourceTree = "<group>"; };
 		CAFB23B125665DB4008F5CEF /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
 		CAFB23B725668DF1008F5CEF /* FeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
 		CAFB23BF2566B489008F5CEF /* PostViewErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewErrors.swift; sourceTree = "<group>"; };
@@ -90,18 +92,20 @@
 		CA8757752563E7A300A05FC3 /* VKClient */ = {
 			isa = PBXGroup;
 			children = (
+				CAFA4E182567F3EA005768CC /* Notification */,
 				CAFB23BE2566B472008F5CEF /* Errors */,
 				CAFB23B625668DD4008F5CEF /* FeedItem */,
 				CAFB23A225665CE9008F5CEF /* VK */,
 				CA87579E2563F37700A05FC3 /* PostView */,
 				CA8757762563E7A300A05FC3 /* AppDelegate.swift */,
 				CA8757782563E7A300A05FC3 /* SceneDelegate.swift */,
-				CA87577A2563E7A300A05FC3 /* ViewController.swift */,
+				CA87577A2563E7A300A05FC3 /* FeedViewController.swift */,
 				CA87577C2563E7A300A05FC3 /* Main.storyboard */,
 				CA87577F2563E7A700A05FC3 /* Assets.xcassets */,
 				CA8757812563E7A700A05FC3 /* LaunchScreen.storyboard */,
 				CA8757842563E7A700A05FC3 /* Info.plist */,
 				CAFA4E122567CF7E005768CC /* ShowCntentController.swift */,
+				CAFA4E152567EFF2005768CC /* FeedViewControllerConcentrate.swift */,
 			);
 			path = VKClient;
 			sourceTree = "<group>";
@@ -164,11 +168,18 @@
 			path = MediaView;
 			sourceTree = "<group>";
 		};
+		CAFA4E182567F3EA005768CC /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				CAFA4E192567F3F8005768CC /* Notification.swift */,
+			);
+			path = Notification;
+			sourceTree = "<group>";
+		};
 		CAFB23A225665CE9008F5CEF /* VK */ = {
 			isa = PBXGroup;
 			children = (
 				CAFB23A925665D24008F5CEF /* vk.swift */,
-				CAFB23AE25665DA7008F5CEF /* client.swift */,
 				CAFB23B125665DB4008F5CEF /* Api.swift */,
 			);
 			path = VK;
@@ -265,17 +276,18 @@
 			files = (
 				CABDEF45256426D000029269 /* TypesMedia.swift in Sources */,
 				CABDEF422564253F00029269 /* MediaView.swift in Sources */,
-				CA87577B2563E7A300A05FC3 /* ViewController.swift in Sources */,
+				CA87577B2563E7A300A05FC3 /* FeedViewController.swift in Sources */,
 				CA87579C2563EF8200A05FC3 /* BottomPostView.swift in Sources */,
 				CAFB23AA25665D24008F5CEF /* vk.swift in Sources */,
 				CAFB23B925668DF1008F5CEF /* FeedTableViewCell.swift in Sources */,
 				CA483F6A2566EC2A00A0EEFE /* VideoView.swift in Sources */,
 				CAFB23B225665DB4008F5CEF /* Api.swift in Sources */,
-				CAFB23AF25665DA7008F5CEF /* client.swift in Sources */,
 				CA8757772563E7A300A05FC3 /* AppDelegate.swift in Sources */,
 				CAFB23C02566B489008F5CEF /* PostViewErrors.swift in Sources */,
 				CA8757932563EEDF00A05FC3 /* ContentView.swift in Sources */,
+				CAFA4E1A2567F3F8005768CC /* Notification.swift in Sources */,
 				CABDEF48256427C900029269 /* ImageView.swift in Sources */,
+				CAFA4E162567EFF2005768CC /* FeedViewControllerConcentrate.swift in Sources */,
 				CA483F712566F05A00A0EEFE /* VideoViewConcentrate.swift in Sources */,
 				CA8757962563EEEF00A05FC3 /* PostView.swift in Sources */,
 				CA8757792563E7A300A05FC3 /* SceneDelegate.swift in Sources */,

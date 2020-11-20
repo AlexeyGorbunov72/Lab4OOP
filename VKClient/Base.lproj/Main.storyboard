@@ -29,7 +29,7 @@
         <!--Типа короче лента-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController title="Типа короче лента" id="BYZ-38-t0r" customClass="ViewController" customModule="VKClient" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Типа короче лента" id="BYZ-38-t0r" customClass="FeedViewController" customModule="VKClient" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -58,15 +58,15 @@
             </objects>
             <point key="canvasLocation" x="-117" y="68"/>
         </scene>
-        <!--View Controller-->
+        <!--Show Cntent Controller-->
         <scene sceneID="7oc-Zg-Zhx">
             <objects>
-                <viewController id="cdN-3q-d5w" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="showContentVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="cdN-3q-d5w" customClass="ShowCntentController" customModule="VKClient" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pwK-j9-YXJ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mpU-uI-jkA">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" maximumZoomScale="2" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mpU-uI-jkA">
                                 <rect key="frame" x="0.0" y="159" width="414" height="609"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sgd-Ng-A7H" customClass="ContentView" customModule="VKClient" customModuleProvider="target">
@@ -94,6 +94,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="NjG-nH-eUX"/>
+                    <connections>
+                        <outlet property="contentView" destination="Sgd-Ng-A7H" id="fzI-a1-UB4"/>
+                        <outlet property="scrollView" destination="mpU-uI-jkA" id="eXs-Ez-dMU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ujr-WK-Iex" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
