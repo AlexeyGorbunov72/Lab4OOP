@@ -12,6 +12,8 @@ class PostView: UIView {
     @IBOutlet weak var profileImage: UIImageView! {
         didSet{
             self.profileImage.layer.cornerRadius = self.profileImage.bounds.size.height / 2
+            self.profileImage.layer.borderColor = UIColor.systemGray6.cgColor
+            self.profileImage.layer.borderWidth = 2
         }
     }
     @IBOutlet weak var posterName: UILabel!
@@ -33,8 +35,8 @@ class PostView: UIView {
             }
         }
         
-        posterName.text = Api.getPosterName(groupId: post.sourceId)
-        try? Api.getPosterImage(groupId: post.sourceId){ [weak self] data in
+        posterName.text = VK.api.getPosterName(groupId: post.sourceId)
+        try? VK.api.getPosterImage(groupId: post.sourceId){ [weak self] data in
             guard let self = self else{
                 return
             }

@@ -18,11 +18,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         feed.rowHeight = UITableView.automaticDimension
         feed.estimatedRowHeight = 1488
         feed.register(FeedTableViewCell.self, forCellReuseIdentifier: "feedCell")
-        loadSomeFeed()
+        loadSomeFeed(count: 2)
 
     }
-    func loadSomeFeed(){
-        Api.getFeed(){[weak self] response in
+    func loadSomeFeed(count: Int = 50){
+        VK.api.getFeed(count: count){[weak self] response in
             guard let self = self else {
                 return
             }

@@ -24,6 +24,7 @@
 		CABDEF422564253F00029269 /* MediaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABDEF412564253F00029269 /* MediaView.swift */; };
 		CABDEF45256426D000029269 /* TypesMedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABDEF44256426D000029269 /* TypesMedia.swift */; };
 		CABDEF48256427C900029269 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABDEF47256427C900029269 /* ImageView.swift */; };
+		CAFA4E132567CF7E005768CC /* ShowCntentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFA4E122567CF7E005768CC /* ShowCntentController.swift */; };
 		CAFB23AA25665D24008F5CEF /* vk.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFB23A925665D24008F5CEF /* vk.swift */; };
 		CAFB23AF25665DA7008F5CEF /* client.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFB23AE25665DA7008F5CEF /* client.swift */; };
 		CAFB23B225665DB4008F5CEF /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFB23B125665DB4008F5CEF /* Api.swift */; };
@@ -51,6 +52,7 @@
 		CABDEF412564253F00029269 /* MediaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaView.swift; sourceTree = "<group>"; };
 		CABDEF44256426D000029269 /* TypesMedia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypesMedia.swift; sourceTree = "<group>"; };
 		CABDEF47256427C900029269 /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
+		CAFA4E122567CF7E005768CC /* ShowCntentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowCntentController.swift; sourceTree = "<group>"; };
 		CAFB23A925665D24008F5CEF /* vk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vk.swift; sourceTree = "<group>"; };
 		CAFB23AE25665DA7008F5CEF /* client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = client.swift; sourceTree = "<group>"; };
 		CAFB23B125665DB4008F5CEF /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 				CA87577F2563E7A700A05FC3 /* Assets.xcassets */,
 				CA8757812563E7A700A05FC3 /* LaunchScreen.storyboard */,
 				CA8757842563E7A700A05FC3 /* Info.plist */,
+				CAFA4E122567CF7E005768CC /* ShowCntentController.swift */,
 			);
 			path = VKClient;
 			sourceTree = "<group>";
@@ -276,6 +279,7 @@
 				CA483F712566F05A00A0EEFE /* VideoViewConcentrate.swift in Sources */,
 				CA8757962563EEEF00A05FC3 /* PostView.swift in Sources */,
 				CA8757792563E7A300A05FC3 /* SceneDelegate.swift in Sources */,
+				CAFA4E132567CF7E005768CC /* ShowCntentController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

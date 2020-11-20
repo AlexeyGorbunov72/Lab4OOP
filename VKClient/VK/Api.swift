@@ -7,13 +7,16 @@
 
 import Foundation
 class Api{
-    static private var nextFrom: String?
-    static private let accessToken = "24898a25cd0cc6e6956726de33935d889dcef0ecc25d89a09787f662c59018297dff3037b5973f8a84e84"
-    
-    static private var groupsInfo: [Group] = []
-    static private var bufferImages: [String : Data] = [:]
-    static private var wait = false
-    static func getFeed(count: Int = 50, completion: @escaping (Response) -> Void){
+    private var nextFrom: String?
+    private var accessToken: String
+    private var groupsInfo: [Group] = []
+    private var bufferImages: [String : Data] = [:]
+    private var wait = false
+    init(accessToken: String){
+        self.accessToken = accessToken
+    }
+    func getFeed(count: Int = 50, completion: @escaping (Response) -> Void){
+        print(accessToken)
         if wait{
             return
         }
@@ -21,9 +24,9 @@ class Api{
         var url: URL?
         if let nextForm = nextFrom{
             
-            url = URL(string: "https://api.vk.com/method/newsfeed.get?count=\(count)&start_from=" + nextForm + "&v=5.52&access_token=\(Api.accessToken)")
+            url = URL(string: "https://api.vk.com/method/newsfeed.get?count=\(count)&start_from=" + nextForm + "&v=5.52&access_token=\(accessToken)")
         } else{
-            url = URL(string: "https://api.vk.com/method/newsfeed.get?count=\(count)&v=5.52&access_token=\(Api.accessToken)")
+            url = URL(string: "https://api.vk.com/method/newsfeed.get?count=\(count)&v=5.52&access_token=\(accessToken)")
         }
         guard let unwarpedUrl = url else{
             return
@@ -47,7 +50,7 @@ class Api{
         task.resume()
         
     }
-    static func getPosterImage(groupId: Int32, competition: @escaping (Data) -> Void) throws{
+    func getPosterImage(groupId: Int32, competition: @escaping (Data) -> Void) throws{
         for group in groupsInfo{
             if group.id + groupId == 0{
                 let config = URLSessionConfiguration.default
@@ -62,7 +65,7 @@ class Api{
                 }
                 URLSession(configuration: config).dataTask(with: url) { data, response, error in
                     if let data = data{
-                        bufferImages[url.absoluteString] = data
+                        self.bufferImages[url.absoluteString] = data
                         competition(data)
                     }
                 }.resume()
@@ -70,7 +73,7 @@ class Api{
         }
 
     }
-    static func getPosterName(groupId: Int32) -> String{
+    func getPosterName(groupId: Int32) -> String{
         for group in groupsInfo{
             if group.id + groupId == 0{
                 return group.name

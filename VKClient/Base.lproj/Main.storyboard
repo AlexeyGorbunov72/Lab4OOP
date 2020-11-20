@@ -35,7 +35,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="CRl-5V-fF7">
-                                <rect key="frame" x="0.0" y="140" width="414" height="722"/>
+                                <rect key="frame" x="0.0" y="140" width="414" height="756"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
@@ -45,17 +45,59 @@
                             <constraint firstItem="CRl-5V-fF7" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Jjw-Tc-GgC"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="CRl-5V-fF7" secondAttribute="trailing" id="NPl-hV-Q4R"/>
                             <constraint firstItem="CRl-5V-fF7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="TX6-tF-HIP"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="CRl-5V-fF7" secondAttribute="bottom" id="eZU-37-Aak"/>
+                            <constraint firstAttribute="bottom" secondItem="CRl-5V-fF7" secondAttribute="bottom" id="WM4-y3-Ylx"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="K3J-42-51A"/>
                     <connections>
                         <outlet property="feed" destination="CRl-5V-fF7" id="peP-xt-PpW"/>
+                        <segue destination="cdN-3q-d5w" kind="push" identifier="showContent" id="5PA-Gv-aco"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-46.376811594202906" y="76.339285714285708"/>
+            <point key="canvasLocation" x="-117" y="68"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="7oc-Zg-Zhx">
+            <objects>
+                <viewController id="cdN-3q-d5w" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pwK-j9-YXJ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mpU-uI-jkA">
+                                <rect key="frame" x="0.0" y="159" width="414" height="609"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sgd-Ng-A7H" customClass="ContentView" customModule="VKClient" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="756"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="fAK-Ct-w0T" firstAttribute="bottom" secondItem="Sgd-Ng-A7H" secondAttribute="bottom" id="8IO-TD-mxX"/>
+                                    <constraint firstItem="Sgd-Ng-A7H" firstAttribute="leading" secondItem="fAK-Ct-w0T" secondAttribute="leading" id="IaK-TJ-5Bp"/>
+                                    <constraint firstItem="fAK-Ct-w0T" firstAttribute="trailing" secondItem="Sgd-Ng-A7H" secondAttribute="trailing" id="PD5-9p-TXS"/>
+                                    <constraint firstItem="Sgd-Ng-A7H" firstAttribute="top" secondItem="fAK-Ct-w0T" secondAttribute="top" id="d0J-jm-uGw"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="as6-fg-i8R"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="fAK-Ct-w0T"/>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="D3N-0R-B9C"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="mpU-uI-jkA" firstAttribute="top" secondItem="D3N-0R-B9C" secondAttribute="top" id="1g1-Pd-DWa"/>
+                            <constraint firstItem="mpU-uI-jkA" firstAttribute="leading" secondItem="D3N-0R-B9C" secondAttribute="leading" id="8Iy-JA-vNJ"/>
+                            <constraint firstAttribute="bottom" secondItem="mpU-uI-jkA" secondAttribute="bottom" id="cXy-VV-q5E"/>
+                            <constraint firstItem="mpU-uI-jkA" firstAttribute="trailing" secondItem="D3N-0R-B9C" secondAttribute="trailing" id="iX6-6r-tBD"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="NjG-nH-eUX"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ujr-WK-Iex" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="746.37681159420299" y="67.633928571428569"/>
         </scene>
     </scenes>
     <resources>
