@@ -62,8 +62,7 @@ class MediaView: UIView{
             
         case .video:
             return resizeImage(image: attachment.video!)
-        case .link:
-            break
+        
         }
         return CGFloat(1400.0)
     }

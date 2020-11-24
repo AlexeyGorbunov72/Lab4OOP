@@ -11,18 +11,7 @@ class ContentView: UIView {
 
 
     func addMedia(attachment: Attachment){
-        switch attachment.type {
-        case .photo:
-            addPicMedia(attachment: attachment)
-            break
-            
-        case .video:
-            addPicMedia(attachment: attachment)
-            break
-            
-        case .link:
-            break
-        }
+        addPicMedia(attachment: attachment)
     }
     private func addPicMedia(attachment: Attachment){
         var imageView: ImageView?

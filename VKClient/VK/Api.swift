@@ -128,6 +128,20 @@ struct Attachment: Codable{
     var type: ContentType
     var photo: Photo?
     var video: Video?
+    var content: Picture {
+        get{
+            if let photo = photo{
+                return photo
+            }
+            if let video = video{
+                return video
+            }
+            fatalError("1488 228")
+        }
+        set{
+            
+        }
+    }
 }
 struct Photo: Codable, Picture{
     var height: Int
@@ -180,5 +194,4 @@ protocol Picture {
 enum ContentType: String, Codable{
     case photo
     case video
-    case link
 }

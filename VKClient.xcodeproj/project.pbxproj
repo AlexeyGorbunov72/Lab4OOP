@@ -7,8 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CA038B6D256CA78A009AFA72 /* MediaDirector.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA038B6C256CA78A009AFA72 /* MediaDirector.swift */; };
+		CA038B72256CB4AC009AFA72 /* ContentViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA038B71256CB4AC009AFA72 /* ContentViewBuilder.swift */; };
 		CA483F6A2566EC2A00A0EEFE /* VideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA483F692566EC2A00A0EEFE /* VideoView.swift */; };
 		CA483F712566F05A00A0EEFE /* VideoViewConcentrate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA483F702566F05A00A0EEFE /* VideoViewConcentrate.swift */; };
+		CA7B007F2569498F00C909F4 /* Telegram.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7B007E2569498F00C909F4 /* Telegram.swift */; };
+		CA7B0083256949A400C909F4 /* TelegramAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7B0082256949A400C909F4 /* TelegramAPI.swift */; };
 		CA8757772563E7A300A05FC3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8757762563E7A300A05FC3 /* AppDelegate.swift */; };
 		CA8757792563E7A300A05FC3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8757782563E7A300A05FC3 /* SceneDelegate.swift */; };
 		CA87577B2563E7A300A05FC3 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA87577A2563E7A300A05FC3 /* FeedViewController.swift */; };
@@ -34,8 +38,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CA038B6C256CA78A009AFA72 /* MediaDirector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaDirector.swift; sourceTree = "<group>"; };
+		CA038B71256CB4AC009AFA72 /* ContentViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewBuilder.swift; sourceTree = "<group>"; };
 		CA483F692566EC2A00A0EEFE /* VideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoView.swift; sourceTree = "<group>"; };
 		CA483F702566F05A00A0EEFE /* VideoViewConcentrate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewConcentrate.swift; sourceTree = "<group>"; };
+		CA7B007E2569498F00C909F4 /* Telegram.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Telegram.swift; sourceTree = "<group>"; };
+		CA7B0082256949A400C909F4 /* TelegramAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelegramAPI.swift; sourceTree = "<group>"; };
 		CA8757732563E7A300A05FC3 /* VKClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VKClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA8757762563E7A300A05FC3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CA8757782563E7A300A05FC3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -73,6 +81,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CA7B007D2569497D00C909F4 /* Telegram */ = {
+			isa = PBXGroup;
+			children = (
+				CA7B007E2569498F00C909F4 /* Telegram.swift */,
+				CA7B0082256949A400C909F4 /* TelegramAPI.swift */,
+			);
+			path = Telegram;
+			sourceTree = "<group>";
+		};
 		CA87576A2563E7A200A05FC3 = {
 			isa = PBXGroup;
 			children = (
@@ -92,20 +109,15 @@
 		CA8757752563E7A300A05FC3 /* VKClient */ = {
 			isa = PBXGroup;
 			children = (
+				CA7B007D2569497D00C909F4 /* Telegram */,
+				CA8757842563E7A700A05FC3 /* Info.plist */,
+				CAFA4E2025680296005768CC /* SupportFiles */,
+				CAFA4E1F25680271005768CC /* Feed */,
 				CAFA4E182567F3EA005768CC /* Notification */,
 				CAFB23BE2566B472008F5CEF /* Errors */,
 				CAFB23B625668DD4008F5CEF /* FeedItem */,
 				CAFB23A225665CE9008F5CEF /* VK */,
 				CA87579E2563F37700A05FC3 /* PostView */,
-				CA8757762563E7A300A05FC3 /* AppDelegate.swift */,
-				CA8757782563E7A300A05FC3 /* SceneDelegate.swift */,
-				CA87577A2563E7A300A05FC3 /* FeedViewController.swift */,
-				CA87577C2563E7A300A05FC3 /* Main.storyboard */,
-				CA87577F2563E7A700A05FC3 /* Assets.xcassets */,
-				CA8757812563E7A700A05FC3 /* LaunchScreen.storyboard */,
-				CA8757842563E7A700A05FC3 /* Info.plist */,
-				CAFA4E122567CF7E005768CC /* ShowCntentController.swift */,
-				CAFA4E152567EFF2005768CC /* FeedViewControllerConcentrate.swift */,
 			);
 			path = VKClient;
 			sourceTree = "<group>";
@@ -129,6 +141,8 @@
 				CABDEF3C2564239400029269 /* ImageView */,
 				CA8757922563EEDF00A05FC3 /* ContentView.swift */,
 				CA87578F2563EECD00A05FC3 /* ContentView.xib */,
+				CA038B6C256CA78A009AFA72 /* MediaDirector.swift */,
+				CA038B71256CB4AC009AFA72 /* ContentViewBuilder.swift */,
 			);
 			path = ContentView;
 			sourceTree = "<group>";
@@ -174,6 +188,28 @@
 				CAFA4E192567F3F8005768CC /* Notification.swift */,
 			);
 			path = Notification;
+			sourceTree = "<group>";
+		};
+		CAFA4E1F25680271005768CC /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				CAFA4E122567CF7E005768CC /* ShowCntentController.swift */,
+				CA87577A2563E7A300A05FC3 /* FeedViewController.swift */,
+				CAFA4E152567EFF2005768CC /* FeedViewControllerConcentrate.swift */,
+			);
+			path = Feed;
+			sourceTree = "<group>";
+		};
+		CAFA4E2025680296005768CC /* SupportFiles */ = {
+			isa = PBXGroup;
+			children = (
+				CA8757812563E7A700A05FC3 /* LaunchScreen.storyboard */,
+				CA87577F2563E7A700A05FC3 /* Assets.xcassets */,
+				CA87577C2563E7A300A05FC3 /* Main.storyboard */,
+				CA8757782563E7A300A05FC3 /* SceneDelegate.swift */,
+				CA8757762563E7A300A05FC3 /* AppDelegate.swift */,
+			);
+			path = SupportFiles;
 			sourceTree = "<group>";
 		};
 		CAFB23A225665CE9008F5CEF /* VK */ = {
@@ -274,12 +310,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA7B007F2569498F00C909F4 /* Telegram.swift in Sources */,
 				CABDEF45256426D000029269 /* TypesMedia.swift in Sources */,
 				CABDEF422564253F00029269 /* MediaView.swift in Sources */,
 				CA87577B2563E7A300A05FC3 /* FeedViewController.swift in Sources */,
 				CA87579C2563EF8200A05FC3 /* BottomPostView.swift in Sources */,
 				CAFB23AA25665D24008F5CEF /* vk.swift in Sources */,
 				CAFB23B925668DF1008F5CEF /* FeedTableViewCell.swift in Sources */,
+				CA7B0083256949A400C909F4 /* TelegramAPI.swift in Sources */,
 				CA483F6A2566EC2A00A0EEFE /* VideoView.swift in Sources */,
 				CAFB23B225665DB4008F5CEF /* Api.swift in Sources */,
 				CA8757772563E7A300A05FC3 /* AppDelegate.swift in Sources */,
@@ -291,6 +329,8 @@
 				CA483F712566F05A00A0EEFE /* VideoViewConcentrate.swift in Sources */,
 				CA8757962563EEEF00A05FC3 /* PostView.swift in Sources */,
 				CA8757792563E7A300A05FC3 /* SceneDelegate.swift in Sources */,
+				CA038B6D256CA78A009AFA72 /* MediaDirector.swift in Sources */,
+				CA038B72256CB4AC009AFA72 /* ContentViewBuilder.swift in Sources */,
 				CAFA4E132567CF7E005768CC /* ShowCntentController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
