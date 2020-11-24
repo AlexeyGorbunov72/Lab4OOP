@@ -9,9 +9,10 @@ import Foundation
 import UIKit
 
 class MediaDirector{
+    private var builder = ContentViewBuilder()
     private var attachments: [Attachment]
-    private lazy var arrayRatioSize: [CGSize] = {
-        var array: [CGSize] = []
+    private lazy var arrayRatioRect: [CGRect] = {
+        var array: [CGRect] = []
         for _ in 0..<attachments.count {
             array.append(.zero)
         }
@@ -28,7 +29,10 @@ class MediaDirector{
     }
     func build(){
         sortAttachmentsByHeight()
-        fillArrayRatioSize()
+        fillArrayRatioRect()
+        for (i, rect) in arrayRatioRect.enumerated(){
+            builder.buildMediaItem(in: rect, media: attachments[i].content)
+        }
     }
     private func sortAttachmentsByHeight(){
         attachments.sort { $0.content.height > $1.content.height }
@@ -37,30 +41,33 @@ class MediaDirector{
     // return new aspect height
     private func aspectRatio(content: Picture, width: CGFloat) -> CGFloat{
         let ratio = CGFloat(content.width) / width
-        return CGFloat(content.height) / ratio
+        return (CGFloat(content.height)) / ratio // TODO: UIScreen ... convert size to Screen resolution
     }
-    private func fillArrayRatioSize(){
+    private func fillArrayRatioRect(){
         let leftRange = 0..<(attachments.count / 2)
         let rightRange = (attachments.count / 2)..<attachments.count
-        normalize(in: leftRange)
-        normalize(in: rightRange)
+        normalize(in: leftRange, horizontalOffset: 0)
+        normalize(in: rightRange, horizontalOffset: width / 2)
+        
     }
     
     // this for normalize left and right halfs
-    private func normalize(in range: Range<Int>){
+    private func normalize(in range: Range<Int>, horizontalOffset: CGFloat){
         var totalHeight: CGFloat = LayoutResurses.verticalSeparator * CGFloat(attachments.count / 2 - 1)
+        var counterOfHeight: CGFloat = 0
         for i in range{
             let newWidth = width / 2 - LayoutResurses.horizontalSeparator / 2
             let newHeight = aspectRatio(content: attachments[i].content, width: newWidth)
-            arrayRatioSize[i] = CGSize(width: newWidth, height: newHeight)
-            totalHeight += arrayRatioSize[i].height
+            arrayRatioRect[i] = CGRect(x: horizontalOffset, y: counterOfHeight, width: newWidth, height: newHeight)
+            totalHeight += arrayRatioRect[i].height
+            counterOfHeight += newHeight + LayoutResurses.horizontalSeparator
         }
         
         if totalHeight > height{
             let ratio = height / totalHeight
             for i in range{
-                arrayRatioSize[i].height *= ratio
-                arrayRatioSize[i].width *= ratio
+                self.arrayRatioRect[i].size.height *= ratio
+                self.arrayRatioRect[i].size.width *= ratio
             }
         }
     }
