@@ -28,6 +28,7 @@
 		CABDEF422564253F00029269 /* MediaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABDEF412564253F00029269 /* MediaView.swift */; };
 		CABDEF45256426D000029269 /* TypesMedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABDEF44256426D000029269 /* TypesMedia.swift */; };
 		CABDEF48256427C900029269 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABDEF47256427C900029269 /* ImageView.swift */; };
+		CACAE73F256DD861008BBAB4 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACAE73E256DD861008BBAB4 /* TestViewController.swift */; };
 		CAFA4E132567CF7E005768CC /* ShowCntentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFA4E122567CF7E005768CC /* ShowCntentController.swift */; };
 		CAFA4E162567EFF2005768CC /* FeedViewControllerConcentrate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFA4E152567EFF2005768CC /* FeedViewControllerConcentrate.swift */; };
 		CAFA4E1A2567F3F8005768CC /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFA4E192567F3F8005768CC /* Notification.swift */; };
@@ -61,6 +62,7 @@
 		CABDEF412564253F00029269 /* MediaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaView.swift; sourceTree = "<group>"; };
 		CABDEF44256426D000029269 /* TypesMedia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypesMedia.swift; sourceTree = "<group>"; };
 		CABDEF47256427C900029269 /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
+		CACAE73E256DD861008BBAB4 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		CAFA4E122567CF7E005768CC /* ShowCntentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowCntentController.swift; sourceTree = "<group>"; };
 		CAFA4E152567EFF2005768CC /* FeedViewControllerConcentrate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewControllerConcentrate.swift; sourceTree = "<group>"; };
 		CAFA4E192567F3F8005768CC /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 				CAFB23B625668DD4008F5CEF /* FeedItem */,
 				CAFB23A225665CE9008F5CEF /* VK */,
 				CA87579E2563F37700A05FC3 /* PostView */,
+				CACAE73E256DD861008BBAB4 /* TestViewController.swift */,
 			);
 			path = VKClient;
 			sourceTree = "<group>";
@@ -312,6 +315,7 @@
 			files = (
 				CA7B007F2569498F00C909F4 /* Telegram.swift in Sources */,
 				CABDEF45256426D000029269 /* TypesMedia.swift in Sources */,
+				CACAE73F256DD861008BBAB4 /* TestViewController.swift in Sources */,
 				CABDEF422564253F00029269 /* MediaView.swift in Sources */,
 				CA87577B2563E7A300A05FC3 /* FeedViewController.swift in Sources */,
 				CA87579C2563EF8200A05FC3 /* BottomPostView.swift in Sources */,
@@ -408,7 +412,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -463,7 +467,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

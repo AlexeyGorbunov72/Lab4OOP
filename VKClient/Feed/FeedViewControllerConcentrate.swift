@@ -7,7 +7,6 @@
 
 import Foundation
 import UIKit
-
 class FeedViewControllerConcentrate: NSObject,  UITableViewDataSource{
     var posts: [Post] = []
     var feed: UITableView?{
@@ -22,7 +21,6 @@ class FeedViewControllerConcentrate: NSObject,  UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return posts.count
     }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let feed = feed else {
             fatalError()

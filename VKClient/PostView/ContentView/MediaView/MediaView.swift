@@ -9,62 +9,49 @@ import Foundation
 import UIKit
 import AVFoundation
 class MediaView: UIView{
-    var attachment: Attachment
+    var picture: Picture
     func loadMedia(){
         fatalError("LoadMedia must override!")
     }
-    init(attachment: Attachment){
-        self.attachment = attachment
+//    init(attachment: Attachment){
+//        self.picture = attachment
+//        super.init(frame: .zero)
+//        isUserInteractionEnabled = true
+//        let gesture = UITapGestureRecognizer(target: self, action: #selector(self.didPressOnView(_:)))
+//        addGestureRecognizer(gesture)
+//
+//    }
+    init(media: Picture){
+        self.picture = media
         super.init(frame: .zero)
         isUserInteractionEnabled = true
         let gesture = UITapGestureRecognizer(target: self, action: #selector(self.didPressOnView(_:)))
         addGestureRecognizer(gesture)
-        
     }
     @objc func didPressOnView(_ sender: UITapGestureRecognizer? = nil){
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "mediaViewDidPress"), object: nil, userInfo: ["attachment": attachment])
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "mediaViewDidPress"), object: nil, userInfo: ["attachment": picture])
     }
     func getPhoto( needsPrePhoto: Bool = false, competition: @escaping (Data) -> Void) throws{
-        var content: Picture?
-        if let pic = attachment.photo{
-            content = pic
-        }
-        if let video = attachment.video{
-            content = video
-        }
-        if let content = content{
-            let config = URLSessionConfiguration.default
-            config.waitsForConnectivity = true
-            config.timeoutIntervalForResource = 10
-            var stringUrl = content.photo
-            if needsPrePhoto{
-                stringUrl = content.prePhoto
-            }
-            guard let url = URL(string: stringUrl) else {
-                throw PostViewErrors.invalidLink
-            }
-            URLSession(configuration: config).dataTask(with: url) { data, response, error in
-                if let data = data{
-                    competition(data)
-                }
-            }.resume()
-        } else {
-            throw PostViewErrors.cantConvertAttachment
-        }
+        let content = picture
         
-        
+        let config = URLSessionConfiguration.default
+        config.waitsForConnectivity = true
+        config.timeoutIntervalForResource = 10
+        var stringUrl = content.photo
+        if needsPrePhoto{
+            stringUrl = content.prePhoto
+        }
+        guard let url = URL(string: stringUrl) else {
+            throw PostViewErrors.invalidLink
+        }
+        URLSession(configuration: config).dataTask(with: url) { data, response, error in
+            if let data = data{
+                competition(data)
+            }
+        }.resume()
     }
     func getResizedHeight() -> CGFloat{
-        switch attachment.type{
-        
-        case .photo:
-            return resizeImage(image: attachment.photo!)
-            
-        case .video:
-            return resizeImage(image: attachment.video!)
-        
-        }
-        return CGFloat(1400.0)
+        resizeImage(image: picture)
     }
     private func resizeImage(image: Picture) -> CGFloat{
         let scale = UIScreen.main.scale

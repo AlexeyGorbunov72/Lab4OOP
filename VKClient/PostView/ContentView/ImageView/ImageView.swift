@@ -15,12 +15,24 @@ class ImageView: MediaView {
             return imageView.image
         }
     }
-    var imageView: UIImageView
+    var imageView: UIImageView = UIImageView()
     
-    override init(attachment: Attachment) {
-        
-        imageView = UIImageView()
-        super.init(attachment: attachment)
+    init(attachment: Attachment) {
+        super.init(media: attachment.content)
+        setup()
+    }
+    override init(media: Picture){
+        super.init(media: media)
+        setup()
+    }
+    init(media: Picture, frame: CGRect){
+        super.init(media: media)
+        imageView.contentMode = .scaleAspectFit
+        imageView.frame = frame
+        addSubview(imageView)
+        setUpMedia()
+    }
+    private func setup(){
         translatesAutoresizingMaskIntoConstraints = false
         try? getPhoto(needsPrePhoto: true){ [weak self] picData in
             guard let self = self else{

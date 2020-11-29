@@ -64,16 +64,26 @@ class PostView: UIView {
             postView.leadingAnchor.constraint(equalTo: leadingAnchor),
             postView.trailingAnchor.constraint(equalTo: trailingAnchor),
         ])
-        setupContentView(attachment: post.attachments?[0])
+        setupContentView(attachments: post.attachments!)
         layoutSubviews()
     }
-    func setupContentView(attachment: Attachment?){
-        guard let attachment = attachment else {
-            return
-        }
+    func setupContentView(attachments: [Attachment]){
+        
         for view in postView!.subviews{
             if let view = view as? ContentView{
-                view.addMedia(attachment: attachment)
+                view.addMedia(attachment: attachments[0])
+//                let manager = MediaDirector(widthPlaceholder: UIScreen.main.bounds.width, heightPlaceholder: UIScreen.main.bounds.height, attachments: attachments)
+//
+//                let contentView = manager.build()
+//
+//                view.addSubview(contentView)
+//
+//                NSLayoutConstraint.activate([
+//                    contentView.topAnchor.constraint(equalTo: view.topAnchor),
+//                    contentView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+//                    contentView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+//                    contentView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+//                ])
             }
         }
     }

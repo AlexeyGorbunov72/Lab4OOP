@@ -22,6 +22,14 @@ class VideoView: ImageView {
     }()
     override init(attachment: Attachment) {
         super.init(attachment: attachment)
+        setup()
+        
+    }
+    override init(media: Picture) {
+        super.init(media: media)
+        setup()
+    }
+    private func setup(){
         let playButton = UIView()
                 
         playButton.translatesAutoresizingMaskIntoConstraints = false
@@ -41,11 +49,10 @@ class VideoView: ImageView {
             playButton.heightAnchor.constraint(equalToConstant: 50),
             playButton.widthAnchor.constraint(equalToConstant: 50),
         ])
-        
     }
     @objc func buttonDidPress(_ sender: UITapGestureRecognizer? = nil){
-        
-        VK.api.getVideoUrlByOvnerId(ownerId: attachment.video!.ownerId){  stringUrlToVideo in
+        let video = picture as! Video
+        VK.api.getVideoUrlByOvnerId(ownerId: video.ownerId){  stringUrlToVideo in
             DispatchQueue.main.async {
                 let videoURL = URL(string: stringUrlToVideo)
                 UIApplication.shared.open(videoURL!)

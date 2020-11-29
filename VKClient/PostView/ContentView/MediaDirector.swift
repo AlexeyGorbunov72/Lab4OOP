@@ -7,9 +7,9 @@
 
 import Foundation
 import UIKit
-
+import AVKit
 class MediaDirector{
-    private var builder = ContentViewBuilder()
+    
     private var attachments: [Attachment]
     private lazy var arrayRatioRect: [CGRect] = {
         var array: [CGRect] = []
@@ -27,25 +27,36 @@ class MediaDirector{
         height = heightPlaceholder
         self.attachments = attachments
     }
-    func build(){
+    func build() -> ContentView{
+        let builder = ContentViewBuilder()
         sortAttachmentsByHeight()
         fillArrayRatioRect()
         for (i, rect) in arrayRatioRect.enumerated(){
             builder.buildMediaItem(in: rect, media: attachments[i].content)
         }
+        return builder.getContentView()
     }
     private func sortAttachmentsByHeight(){
         attachments.sort { $0.content.height > $1.content.height }
     }
     
     // return new aspect height
-    private func aspectRatio(content: Picture, width: CGFloat) -> CGFloat{
-        let ratio = CGFloat(content.width) / width
-        return (CGFloat(content.height)) / ratio // TODO: UIScreen ... convert size to Screen resolution
+    private func aspectRatio(content: Picture, width: CGFloat) -> CGSize{
+        let scale = UIScreen.main.scale
+        let shitSize = CGSize(width: CGFloat(content.width) / scale , height: CGFloat(content.height) / scale)
+        let shit = AVMakeRect(aspectRatio: shitSize, insideRect: CGRect(x: 0, y: 0, width: width, height: CGFloat.infinity))
+//        let ratio = (CGFloat(content.width) / UIScreen.main.scale) / width
+//        let height = (CGFloat(content.height)) / ratio
+//        let size = CGSize(width: width, height: height)
+        return shit.size
     }
     private func fillArrayRatioRect(){
         let leftRange = 0..<(attachments.count / 2)
         let rightRange = (attachments.count / 2)..<attachments.count
+        if attachments.count == 1{
+            normalize(in: 0..<1, horizontalOffset: 0)
+            return
+        }
         normalize(in: leftRange, horizontalOffset: 0)
         normalize(in: rightRange, horizontalOffset: width / 2)
         
@@ -54,13 +65,17 @@ class MediaDirector{
     // this for normalize left and right halfs
     private func normalize(in range: Range<Int>, horizontalOffset: CGFloat){
         var totalHeight: CGFloat = LayoutResurses.verticalSeparator * CGFloat(attachments.count / 2 - 1)
+        var widthOfNormalize = width / 2
+        if attachments.count == 1{
+            widthOfNormalize = width
+        }
         var counterOfHeight: CGFloat = 0
         for i in range{
-            let newWidth = width / 2 - LayoutResurses.horizontalSeparator / 2
-            let newHeight = aspectRatio(content: attachments[i].content, width: newWidth)
-            arrayRatioRect[i] = CGRect(x: horizontalOffset, y: counterOfHeight, width: newWidth, height: newHeight)
+            //let newWidth = widthOfNormalize - LayoutResurses.horizontalSeparator / 2
+            let sizeRect = aspectRatio(content: attachments[i].content, width: widthOfNormalize)
+            arrayRatioRect[i] = CGRect(origin: CGPoint(x: horizontalOffset, y: counterOfHeight), size: sizeRect)
             totalHeight += arrayRatioRect[i].height
-            counterOfHeight += newHeight + LayoutResurses.horizontalSeparator
+            counterOfHeight += sizeRect.height + LayoutResurses.horizontalSeparator
         }
         
         if totalHeight > height{
