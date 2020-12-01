@@ -24,9 +24,9 @@ class MediaView: UIView{
     init(media: Picture){
         self.picture = media
         super.init(frame: .zero)
-        isUserInteractionEnabled = true
+        //isUserInteractionEnabled = true
         let gesture = UITapGestureRecognizer(target: self, action: #selector(self.didPressOnView(_:)))
-        addGestureRecognizer(gesture)
+        //addGestureRecognizer(gesture)
     }
     @objc func didPressOnView(_ sender: UITapGestureRecognizer? = nil){
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "mediaViewDidPress"), object: nil, userInfo: ["attachment": picture])

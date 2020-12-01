@@ -32,4 +32,8 @@ class FeedViewController: UIViewController, UITableViewDelegate{
         NotificationCenter.default.addObserver(self, selector: #selector(didPress), name: NSNotification.Name(rawValue: "mediaViewDidPress"), object: nil)
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+    
 }

@@ -25,6 +25,7 @@
 		CA8757962563EEEF00A05FC3 /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8757952563EEEF00A05FC3 /* PostView.swift */; };
 		CA8757992563EF7700A05FC3 /* BottomPostView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA8757982563EF7700A05FC3 /* BottomPostView.xib */; };
 		CA87579C2563EF8200A05FC3 /* BottomPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA87579B2563EF8200A05FC3 /* BottomPostView.swift */; };
+		CABC47B125758C860016E963 /* SlidableTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABC47B025758C860016E963 /* SlidableTextView.swift */; };
 		CABDEF422564253F00029269 /* MediaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABDEF412564253F00029269 /* MediaView.swift */; };
 		CABDEF45256426D000029269 /* TypesMedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABDEF44256426D000029269 /* TypesMedia.swift */; };
 		CABDEF48256427C900029269 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABDEF47256427C900029269 /* ImageView.swift */; };
@@ -59,6 +60,7 @@
 		CA8757952563EEEF00A05FC3 /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
 		CA8757982563EF7700A05FC3 /* BottomPostView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BottomPostView.xib; sourceTree = "<group>"; };
 		CA87579B2563EF8200A05FC3 /* BottomPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomPostView.swift; sourceTree = "<group>"; };
+		CABC47B025758C860016E963 /* SlidableTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlidableTextView.swift; sourceTree = "<group>"; };
 		CABDEF412564253F00029269 /* MediaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaView.swift; sourceTree = "<group>"; };
 		CABDEF44256426D000029269 /* TypesMedia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypesMedia.swift; sourceTree = "<group>"; };
 		CABDEF47256427C900029269 /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 		CA87579E2563F37700A05FC3 /* PostView */ = {
 			isa = PBXGroup;
 			children = (
+				CABC47AF25758C580016E963 /* PostViewHeader */,
 				CA8757A02563F3B700A05FC3 /* BottomPostView */,
 				CA87579F2563F3A400A05FC3 /* ContentView */,
 				CA87578B2563E81A00A05FC3 /* PostView.xib */,
@@ -157,6 +160,14 @@
 				CA87579B2563EF8200A05FC3 /* BottomPostView.swift */,
 			);
 			path = BottomPostView;
+			sourceTree = "<group>";
+		};
+		CABC47AF25758C580016E963 /* PostViewHeader */ = {
+			isa = PBXGroup;
+			children = (
+				CABC47B025758C860016E963 /* SlidableTextView.swift */,
+			);
+			path = PostViewHeader;
 			sourceTree = "<group>";
 		};
 		CABDEF3C2564239400029269 /* ImageView */ = {
@@ -314,6 +325,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CA7B007F2569498F00C909F4 /* Telegram.swift in Sources */,
+				CABC47B125758C860016E963 /* SlidableTextView.swift in Sources */,
 				CABDEF45256426D000029269 /* TypesMedia.swift in Sources */,
 				CACAE73F256DD861008BBAB4 /* TestViewController.swift in Sources */,
 				CABDEF422564253F00029269 /* MediaView.swift in Sources */,
@@ -412,7 +424,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -467,7 +479,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -483,7 +495,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 62MNR2QKFT;
+				DEVELOPMENT_TEAM = ZM28Y4MK54;
 				INFOPLIST_FILE = VKClient/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -502,7 +514,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 62MNR2QKFT;
+				DEVELOPMENT_TEAM = ZM28Y4MK54;
 				INFOPLIST_FILE = VKClient/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

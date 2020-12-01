@@ -29,14 +29,21 @@ class VideoView: ImageView {
         super.init(media: media)
         setup()
     }
+    override init(media: Picture, frame: CGRect) {
+        super.init(media: media, frame: frame)
+        setup()
+    }
     private func setup(){
         let playButton = UIView()
                 
         playButton.translatesAutoresizingMaskIntoConstraints = false
         playButton.contentMode = .scaleAspectFit
-               
-                
-        let myImage = UIImage(systemName: "play.circle")?.cgImage
+        
+        
+        
+        let myImage = UIImage(named: "play")?.cgImage
+        
+        
         playButton.layer.contents = myImage
         playButton.isUserInteractionEnabled = true
         addSubview(playButton)

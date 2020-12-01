@@ -9,31 +9,41 @@ import UIKit
 
 class PostView: UIView {
     var postView: UIView?
+    var callBack: ((UITextView) -> ())?
     @IBOutlet weak var profileImage: UIImageView! {
         didSet{
             self.profileImage.layer.cornerRadius = self.profileImage.bounds.size.height / 2
-            self.profileImage.layer.borderColor = UIColor.systemGray6.cgColor
+            if #available(iOS 13.0, *) {
+                self.profileImage.layer.borderColor = UIColor.systemGray6.cgColor
+            } else {
+                self.profileImage.layer.borderColor = UIColor.lightGray.cgColor
+            }
             self.profileImage.layer.borderWidth = 2
         }
     }
     @IBOutlet weak var posterName: UILabel!
-    @IBOutlet weak var text: UITextView!
+    @IBOutlet weak var text: SlidableTextView!
     @IBOutlet weak var timeLabel: UILabel!
     required init(post: Post){
         super.init(frame: .zero)
-        
+
         getView(post: post)
         setupOutlets(post: post)
+        
     }
 
     required init?(coder: NSCoder) {
         fatalError("Unsupported init")
     }
     private func setupOutlets(post: Post){
+        text.callBack = callBack
+        print(callBack)
         if let postText = post.text{
             let trimed = postText.trimmingCharacters(in: .whitespacesAndNewlines)
+            
+            
             if !trimed.isEmpty{
-                text.text = trimed
+                text.setText(text: trimed)
             }
         }
         
@@ -71,19 +81,21 @@ class PostView: UIView {
         
         for view in postView!.subviews{
             if let view = view as? ContentView{
-                view.addMedia(attachment: attachments[0])
-//                let manager = MediaDirector(widthPlaceholder: UIScreen.main.bounds.width, heightPlaceholder: UIScreen.main.bounds.height, attachments: attachments)
-//
-//                let contentView = manager.build()
-//
-//                view.addSubview(contentView)
-//
-//                NSLayoutConstraint.activate([
-//                    contentView.topAnchor.constraint(equalTo: view.topAnchor),
-//                    contentView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-//                    contentView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-//                    contentView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-//                ])
+                //view.addMedia(attachment: attachments[0])
+                let manager = MediaDirector(widthPlaceholder: UIScreen.main.bounds.width, heightPlaceholder: UIScreen.main.bounds.height, attachments: attachments)
+
+                let contentView = manager.build()
+                
+                view.addSubview(contentView)
+                
+                
+                NSLayoutConstraint.activate([
+                    contentView.topAnchor.constraint(equalTo: view.topAnchor),
+                    contentView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+                    contentView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+                    contentView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+                ])
+                 
             }
         }
     }

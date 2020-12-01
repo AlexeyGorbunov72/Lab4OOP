@@ -27,8 +27,10 @@ class ImageView: MediaView {
     }
     init(media: Picture, frame: CGRect){
         super.init(media: media)
+        self.frame = frame
         imageView.contentMode = .scaleAspectFit
-        imageView.frame = frame
+        imageView.frame = CGRect(origin: CGPoint(x: 0, y: 0), size: frame.size)
+        
         addSubview(imageView)
         setUpMedia()
     }
@@ -56,7 +58,7 @@ class ImageView: MediaView {
                                      imageView.bottomAnchor.constraint(equalTo: bottomAnchor),
                                      imageView.heightAnchor.constraint(equalToConstant: imageHeight),
         ])
-        
+        print("image:", imageView.frame)
         setUpMedia()
     }
     required init?(coder: NSCoder) {

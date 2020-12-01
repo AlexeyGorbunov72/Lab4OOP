@@ -9,30 +9,46 @@ import UIKit
 
 class TestViewController: UIViewController {
     
-    @IBOutlet weak var ihatemyself: UIView!
-    @IBOutlet weak var fuckshit: UIView!
+    var pizda = UIView()
+    var posts: [Post] = []
+    var counter = -1
     override func viewDidLoad() {
         super.viewDidLoad()
+        pizda.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(pizda)
+        pizda.isUserInteractionEnabled = true
+        pizda.backgroundColor = .blue
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(self.didTap(_:)))
+        pizda.addGestureRecognizer(gesture)
+        NSLayoutConstraint.activate([
+            pizda.topAnchor.constraint(equalTo: view.topAnchor),
+            pizda.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            pizda.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            pizda.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+        ])
         VK.api.getFeed() { response in
-            let posts = response.items
-            DispatchQueue.main.async { [self] in
-                let manager = MediaDirector(widthPlaceholder: UIScreen.main.bounds.width, heightPlaceholder: UIScreen.main.bounds.height, attachments: posts[1].attachments!)
-                let fuck = manager.build()
-                print(fuck.frame)
-                self.ihatemyself.addSubview(fuck)
-                NSLayoutConstraint.activate([
-                    fuck.topAnchor.constraint(equalTo: self.ihatemyself.topAnchor),
-                    fuck.leadingAnchor.constraint(equalTo: ihatemyself.leadingAnchor),
-                    fuck.trailingAnchor.constraint(equalTo: ihatemyself.trailingAnchor),
-                    fuck.bottomAnchor.constraint(equalTo: ihatemyself.bottomAnchor),
-                ])
-                
+            self.posts = response.items
+        }
+        view.layoutSubviews()
+    }
+    @objc func didTap(_ sender: UITapGestureRecognizer? = nil){
+        counter += 1
+        DispatchQueue.main.async { [self] in
+            if pizda.subviews.count > 0{
+                pizda.subviews[0].removeFromSuperview()
             }
             
+            let manager = MediaDirector(widthPlaceholder: UIScreen.main.bounds.width, heightPlaceholder: UIScreen.main.bounds.height, attachments: posts[counter].attachments!)
+
+            let contentView = manager.build()
+
+            pizda.addSubview(contentView)
+            contentView.layer.borderColor = UIColor.black.cgColor
+            contentView.layer.borderWidth = 3
+            print(contentView.frame)
+            
         }
-        
     }
-    
 
     /*
     // MARK: - Navigation

@@ -14,6 +14,7 @@ class FeedViewControllerConcentrate: NSObject,  UITableViewDataSource{
             feed!.dataSource = self
             feed!.register(FeedTableViewCell.self, forCellReuseIdentifier: "feedCell")
             loadSomeFeed(count: 20)
+            
         }
     }
    
@@ -25,14 +26,21 @@ class FeedViewControllerConcentrate: NSObject,  UITableViewDataSource{
         guard let feed = feed else {
             fatalError()
         }
+        
+        
         let post = posts[indexPath.row]
         let feedCell = feed
             .dequeueReusableCell(withIdentifier: "feedCell", for: indexPath) as! FeedTableViewCell
         print(indexPath.row)
-        feedCell.isUserInteractionEnabled = true
+        //feedCell.isUserInteractionEnabled = true
         feedCell.addPostView(post: post)
         feedCell.selectionStyle = .none
         feedCell.clipsToBounds = true
+        feedCell.callBack = { textView in
+            tableView.beginUpdates()
+            textView.sizeToFit()
+            tableView.endUpdates()
+        }
         if abs(posts.count - indexPath.row) < 10{
             DispatchQueue.global(qos: .userInitiated).async { [weak self] in
                 self?.loadSomeFeed()
@@ -41,6 +49,7 @@ class FeedViewControllerConcentrate: NSObject,  UITableViewDataSource{
         }
         return feedCell
     }
+    
     func loadSomeFeed(count: Int = 50){
         VK.api.getFeed(count: count){[weak self] response in
             guard let self = self else {
@@ -53,4 +62,5 @@ class FeedViewControllerConcentrate: NSObject,  UITableViewDataSource{
             
         }
     }
+    
 }

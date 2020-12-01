@@ -13,21 +13,24 @@ class ContentViewBuilder{
         // TODO: add logic
         if let image = media as? Photo{
             let imageView = ImageView(media: image, frame: rect)
-            imageView.frame = rect
+            imageView.translatesAutoresizingMaskIntoConstraints = false
             contentView.addSubview(imageView)
+            
         }
         if let video = media as? Video{
-            let videoView = VideoView(media: video)
-            videoView.frame = rect
+            let videoView = VideoView(media: video, frame: rect)
+            videoView.translatesAutoresizingMaskIntoConstraints = false
             contentView.addSubview(videoView)
         }
     }
     func getContentView() -> ContentView {
         var maxHeight: CGFloat = 0
+        
         contentView.subviews.forEach {
             maxHeight = max($0.frame.maxY, maxHeight)
         }
-        contentView.heightAnchor.constraint(equalToConstant: maxHeight).isActive = true
+        
+        contentView.frame.size = CGSize(width: UIScreen.main.bounds.width, height: maxHeight)
         return contentView
     }
 }

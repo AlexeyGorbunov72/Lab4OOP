@@ -12,7 +12,7 @@
         <!--Navigation Controller-->
         <scene sceneID="bV3-X5-Mbw">
             <objects>
-                <navigationController id="fQA-Yo-b7V" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="start" id="fQA-Yo-b7V" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="oIM-gE-LzA">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
@@ -29,48 +29,13 @@
         <!--Test View Controller-->
         <scene sceneID="jhK-gD-SFd">
             <objects>
-                <viewController id="QjJ-em-UQV" customClass="TestViewController" customModule="VKClient" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="test" id="QjJ-em-UQV" customClass="TestViewController" customModule="VKClient" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FMZ-dd-w1W">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PlN-pd-hSb">
-                                <rect key="frame" x="87" y="44" width="240" height="128"/>
-                                <color key="backgroundColor" systemColor="systemYellowColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="240" id="BGj-G5-6lA"/>
-                                    <constraint firstAttribute="height" constant="128" id="ngW-HL-Y4a"/>
-                                </constraints>
-                            </view>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b7D-d0-8gH">
-                                <rect key="frame" x="87" y="180" width="240" height="128"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </view>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S4d-9Q-kUO">
-                                <rect key="frame" x="87" y="326" width="240" height="128"/>
-                                <color key="backgroundColor" systemColor="systemOrangeColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="240" id="Ugw-r7-IY0"/>
-                                    <constraint firstAttribute="height" constant="128" id="aQb-XC-UXg"/>
-                                </constraints>
-                            </view>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="urF-jI-HjS"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="S4d-9Q-kUO" firstAttribute="centerX" secondItem="urF-jI-HjS" secondAttribute="centerX" id="Bue-ej-jmW"/>
-                            <constraint firstItem="b7D-d0-8gH" firstAttribute="top" secondItem="PlN-pd-hSb" secondAttribute="bottom" constant="8" symbolic="YES" id="IBs-Pn-eav"/>
-                            <constraint firstItem="S4d-9Q-kUO" firstAttribute="top" secondItem="b7D-d0-8gH" secondAttribute="bottom" constant="18" id="MkW-NE-bQc"/>
-                            <constraint firstItem="urF-jI-HjS" firstAttribute="trailing" secondItem="PlN-pd-hSb" secondAttribute="trailing" constant="87" id="Prc-wm-YGG"/>
-                            <constraint firstItem="PlN-pd-hSb" firstAttribute="top" secondItem="urF-jI-HjS" secondAttribute="top" id="SF3-N6-aSy"/>
-                            <constraint firstItem="b7D-d0-8gH" firstAttribute="centerX" secondItem="urF-jI-HjS" secondAttribute="centerX" id="YSo-yJ-tWC"/>
-                            <constraint firstItem="PlN-pd-hSb" firstAttribute="leading" secondItem="urF-jI-HjS" secondAttribute="leading" constant="87" id="guw-pq-1Za"/>
-                        </constraints>
                     </view>
-                    <connections>
-                        <outlet property="fuckshit" destination="PlN-pd-hSb" id="Y7m-hi-IN9"/>
-                        <outlet property="ihatemyself" destination="b7D-d0-8gH" id="wR0-E3-8QX"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZvQ-f0-4si" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -193,12 +158,6 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemOrangeColor">
-            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemYellowColor">
-            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

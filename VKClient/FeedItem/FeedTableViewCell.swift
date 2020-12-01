@@ -9,9 +9,12 @@ import UIKit
 
 class FeedTableViewCell: UITableViewCell {
     var feedPostView: PostView?
-    
-    
-    
+    var callBack: ((UITextView) -> ())?{
+        didSet{
+            
+            feedPostView!.text.callBack = callBack
+        }
+    }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }

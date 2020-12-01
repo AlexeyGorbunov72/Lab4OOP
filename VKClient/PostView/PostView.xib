@@ -25,20 +25,6 @@
                 <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zot-jh-9cY">
                     <rect key="frame" x="0.0" y="261" width="414" height="372"/>
                     <subviews>
-                        <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qwD-gs-a9X" userLabel="separator">
-                            <rect key="frame" x="6" y="184" width="402" height="3"/>
-                            <color key="backgroundColor" systemColor="systemGray5Color"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="3" id="Lfl-Jo-URf"/>
-                            </constraints>
-                        </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wvv-Zk-g1A" userLabel="separator">
-                            <rect key="frame" x="6" y="0.0" width="402" height="3"/>
-                            <color key="backgroundColor" systemColor="systemGray5Color"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="3" id="6bo-Vl-CP3"/>
-                            </constraints>
-                        </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="anS-02-FNJ">
                             <rect key="frame" x="0.0" y="12" width="419" height="60"/>
                             <subviews>
@@ -85,44 +71,27 @@
                         <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bPe-TM-lyQ" customClass="BottomPostView" customModule="VKClient" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="308" width="414" height="64"/>
                         </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2oV-c4-Hg3">
-                            <rect key="frame" x="12" y="78" width="390" height="38"/>
-                            <subviews>
-                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wQ0-xJ-xVS">
-                                    <rect key="frame" x="0.0" y="0.0" width="390" height="38"/>
-                                    <color key="textColor" systemColor="labelColor"/>
-                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                </textView>
-                            </subviews>
-                            <constraints>
-                                <constraint firstItem="wQ0-xJ-xVS" firstAttribute="leading" secondItem="2oV-c4-Hg3" secondAttribute="leading" id="4be-pI-Usc"/>
-                                <constraint firstAttribute="trailing" secondItem="wQ0-xJ-xVS" secondAttribute="trailing" id="Tnz-7l-KZ2"/>
-                                <constraint firstAttribute="bottom" secondItem="wQ0-xJ-xVS" secondAttribute="bottom" id="WtD-D2-CXy"/>
-                                <constraint firstItem="wQ0-xJ-xVS" firstAttribute="top" secondItem="2oV-c4-Hg3" secondAttribute="top" id="YNi-cJ-rdt"/>
-                            </constraints>
-                        </view>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wQ0-xJ-xVS" customClass="SlidableTextView" customModule="VKClient" customModuleProvider="target">
+                            <rect key="frame" x="12" y="84" width="390" height="40"/>
+                            <color key="textColor" systemColor="labelColor"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                        </textView>
                     </subviews>
                     <constraints>
+                        <constraint firstItem="ex9-zT-L19" firstAttribute="top" secondItem="wQ0-xJ-xVS" secondAttribute="bottom" constant="6" id="0Fg-cJ-gaH"/>
                         <constraint firstAttribute="trailing" secondItem="bPe-TM-lyQ" secondAttribute="trailing" id="3KJ-V4-PAT"/>
                         <constraint firstItem="bPe-TM-lyQ" firstAttribute="top" secondItem="ex9-zT-L19" secondAttribute="bottom" constant="8" symbolic="YES" id="3PP-aH-TrM"/>
-                        <constraint firstItem="wvv-Zk-g1A" firstAttribute="leading" secondItem="zot-jh-9cY" secondAttribute="leading" constant="6" id="4X5-Kz-GCh"/>
-                        <constraint firstItem="2oV-c4-Hg3" firstAttribute="leading" secondItem="zot-jh-9cY" secondAttribute="leading" constant="12" id="7KR-8v-rvb"/>
-                        <constraint firstItem="qwD-gs-a9X" firstAttribute="leading" secondItem="zot-jh-9cY" secondAttribute="leading" constant="6" id="9HK-oR-7U8"/>
-                        <constraint firstAttribute="trailing" secondItem="wvv-Zk-g1A" secondAttribute="trailing" constant="6" id="ItS-gL-gle"/>
-                        <constraint firstAttribute="trailing" secondItem="2oV-c4-Hg3" secondAttribute="trailing" constant="12" id="Rvp-6e-Cjm"/>
+                        <constraint firstAttribute="trailing" secondItem="wQ0-xJ-xVS" secondAttribute="trailing" constant="12" id="7zl-Hh-Stb"/>
+                        <constraint firstItem="wQ0-xJ-xVS" firstAttribute="leading" secondItem="zot-jh-9cY" secondAttribute="leading" constant="12" id="87v-fX-HsR"/>
                         <constraint firstAttribute="trailing" secondItem="ex9-zT-L19" secondAttribute="trailing" id="Vyy-dO-wGl"/>
-                        <constraint firstItem="ex9-zT-L19" firstAttribute="top" secondItem="2oV-c4-Hg3" secondAttribute="bottom" id="amq-cR-Lj3"/>
-                        <constraint firstItem="wvv-Zk-g1A" firstAttribute="top" secondItem="zot-jh-9cY" secondAttribute="top" id="bIX-Ub-zcu"/>
                         <constraint firstItem="anS-02-FNJ" firstAttribute="top" secondItem="zot-jh-9cY" secondAttribute="top" constant="12" id="cT1-mA-gdn"/>
                         <constraint firstAttribute="trailing" secondItem="anS-02-FNJ" secondAttribute="trailing" constant="-5" id="gZb-WQ-Vcr"/>
                         <constraint firstItem="bPe-TM-lyQ" firstAttribute="leading" secondItem="zot-jh-9cY" secondAttribute="leading" id="i0r-Ax-eox"/>
                         <constraint firstItem="ex9-zT-L19" firstAttribute="leading" secondItem="zot-jh-9cY" secondAttribute="leading" id="iYc-Aj-agJ"/>
-                        <constraint firstAttribute="bottom" secondItem="qwD-gs-a9X" secondAttribute="bottom" id="iud-dW-7oU"/>
                         <constraint firstItem="anS-02-FNJ" firstAttribute="leading" secondItem="zot-jh-9cY" secondAttribute="leading" id="jZF-7Z-MfJ"/>
-                        <constraint firstAttribute="trailing" secondItem="qwD-gs-a9X" secondAttribute="trailing" constant="6" id="uuS-0K-YWz"/>
-                        <constraint firstItem="2oV-c4-Hg3" firstAttribute="top" secondItem="anS-02-FNJ" secondAttribute="bottom" constant="6" id="vId-xf-Udf"/>
                         <constraint firstAttribute="bottom" secondItem="bPe-TM-lyQ" secondAttribute="bottom" id="vcZ-FK-sIj"/>
+                        <constraint firstItem="wQ0-xJ-xVS" firstAttribute="top" secondItem="zs3-GI-zRz" secondAttribute="bottom" constant="12" id="ydh-g0-rHV"/>
                     </constraints>
                 </view>
             </subviews>
@@ -143,9 +112,6 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGray5Color">
-            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
