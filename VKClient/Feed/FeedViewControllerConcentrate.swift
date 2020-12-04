@@ -13,7 +13,7 @@ class FeedViewControllerConcentrate: NSObject,  UITableViewDataSource{
         didSet{
             feed!.dataSource = self
             feed!.register(FeedTableViewCell.self, forCellReuseIdentifier: "feedCell")
-            loadSomeFeed(count: 20)
+            loadSomeFeed(count: 15)
             
         }
     }

@@ -50,7 +50,7 @@ class Api{
         task.resume()
         
     }
-    func getPosterImage(groupId: Int32, competition: @escaping (Data) -> Void) throws{
+    func getPosterImage(groupId: Int64, competition: @escaping (Data) -> Void) throws{
         for group in groupsInfo{
             if group.id + groupId == 0{
                 let config = URLSessionConfiguration.default
@@ -73,7 +73,7 @@ class Api{
         }
 
     }
-    func getPosterName(groupId: Int32) -> String{
+    func getPosterName(groupId: Int64) -> String{
         for group in groupsInfo{
             if group.id + groupId == 0{
                 return group.name
@@ -81,7 +81,7 @@ class Api{
         }
         return "?"
     }
-    func getVideoUrlByOvnerId(ownerId: Int32, completion: @escaping (String) -> Void){
+    func getVideoUrlByOvnerId(ownerId: Int64, completion: @escaping (String) -> Void){
         let url = URL(string: "https://api.vk.com/method/video.get?owner_id=\(ownerId)&count=1&v=5.52&access_token=\(accessToken)")
         let session = URLSession.shared
         if let unwarpedUrl = url{
@@ -98,6 +98,69 @@ class Api{
         }
         
     }
+    private func _setLike(likable: Likable){
+        let config = URLSessionConfiguration.default
+        config.waitsForConnectivity = true
+        config.timeoutIntervalForResource = 10
+        guard let url = URL(string: "https://api.vk.com/method/likes.add?type=\(likable.contentType)&owner_id=\(likable.ownerId)&item_id=\(likable.itemId)" + "&v=5.52&access_token=\(accessToken)") else {
+            return
+        }
+        URLSession(configuration: config).dataTask(with: url) { data, response, _ in
+            if let data = data{
+                // nice
+            }
+        }.resume()
+    }
+    private func _undoLike(likable: Likable){
+        let config = URLSessionConfiguration.default
+        config.waitsForConnectivity = true
+        config.timeoutIntervalForResource = 10
+        guard let url = URL(string: "https://api.vk.com/method/likes.add?type=\(likable.contentType)&owner_id=\(likable.ownerId)&item_id=\(likable.itemId)" + "&v=5.52&access_token=\(accessToken)") else {
+            return
+        }
+        URLSession(configuration: config).dataTask(with: url) { data, response, _ in
+            if let data = data{
+                // nice
+            }
+        }.resume()
+    }
+    private func _isLike(likable: Likable, response: @escaping(Bool) -> Void){
+        let config = URLSessionConfiguration.default
+        config.waitsForConnectivity = true
+        config.timeoutIntervalForResource = 10
+        guard let url = URL(string: "https://api.vk.com/method/likes.isliked?type=\(likable.contentType)&owner_id=\(likable.ownerId)&item_id=\(likable.itemId)" + "&v=5.52&access_token=\(accessToken)") else {
+            return
+        }
+        URLSession(configuration: config).dataTask(with: url) { data, _, error in
+            if let data = data{
+                self.bufferImages[url.absoluteString] = data
+                print(String(data: data, encoding: .utf8))
+                var _responseRaw = 1
+                response( _responseRaw == 1 )
+            }
+        }.resume()
+    }
+}
+
+extension Api: VKApiLikes{
+    func setLike(toLike: Likable){
+        /*
+         VK API выдает доступ к этому методу
+         только проверенным приложениям :(
+        */
+        _setLike(likable: toLike)
+    }
+    func undoLike(toUndo: Likable){
+        /*
+         VK API выдает доступ к этому методу
+         только проверенным приложениям :(
+        */
+        _undoLike(likable: toUndo)
+    }
+    func isLiked(toCheck: Likable, response: @escaping(Bool) -> Void){
+        _isLike(likable: toCheck, response: response)
+    }
+    
 }
 
 struct ModelVideo: Codable{
@@ -117,15 +180,30 @@ struct Response: Codable {
     var groups: [Group]
     var nextFrom: String
 }
-struct Post: Codable{
-    var sourceId: Int32
+struct Post: Codable, Likable{
+    var ownerId: Int64 = 0
+    
+    var contentType: ContentType = .photo
+    
+    var sourceId: Int64
+    
+    var itemId: Int64
     var date: Date
     var text: String?
+    //var contentType: ContentType = .post
     var attachments: [Attachment]?
+    enum CodingKeys: String, CodingKey {
+        // case contentType = "type"
+        case sourceId = "sourceId"
+       // case ownerId = "sourceId"
+        case itemId = "postId"
+        case date
+        case text
+        case attachments
+    }
 }
-
 struct Attachment: Codable{
-    var type: ContentType
+    var contentType: ContentType
     var photo: Photo?
     var video: Video?
     var content: Picture {
@@ -142,8 +220,27 @@ struct Attachment: Codable{
             
         }
     }
+    
+    func getImageView() -> ImageView{
+        if photo != nil{
+            return ImageView(media: content)
+        } else {
+            return VideoView(media: content)
+        }
+        
+    }
+    enum CodingKeys: String, CodingKey {
+        case contentType = "type"
+        case photo
+        case video
+        
+    }
 }
-struct Photo: Codable, Picture{
+struct Photo: Codable, Picture, Likable{
+    var ownerId: Int64
+    var itemId: Int64
+    var contentType: ContentType = .photo
+    
     var height: Int
     var width: Int
     var photo: String
@@ -153,10 +250,16 @@ struct Photo: Codable, Picture{
         case prePhoto = "photo75"
         case height
         case width
+        case itemId = "id"
+        case ownerId
+        
         
     }
 }
-struct Video: Codable, Picture{
+struct Video: Codable, Picture, Likable{
+    var ownerId: Int64
+    var itemId: Int64
+    var contentType: ContentType = .video
     var height: Int
     var width: Int
     var photo: String
@@ -164,7 +267,6 @@ struct Video: Codable, Picture{
     var title: String
     var views: Int
     var prePhoto: String
-    var ownerId: Int32
     enum CodingKeys: String, CodingKey {
         case photo = "firstFrame1280"
         case prePhoto = "firstFrame130"
@@ -174,6 +276,8 @@ struct Video: Codable, Picture{
         case title
         case views
         case ownerId
+        case itemId = "id"
+        
     }
     
 }
@@ -181,7 +285,7 @@ struct Groups: Codable{
     var group: [Group]
 }
 struct Group: Codable{
-    var id: Int32
+    var id: Int64
     var name: String
     var photo50: String
 }
@@ -192,6 +296,7 @@ protocol Picture {
     var prePhoto: String { get set }
 }
 enum ContentType: String, Codable{
-    case photo
-    case video
+    case photo = "photo"
+    case video = "video"
+    case post = "post"
 }

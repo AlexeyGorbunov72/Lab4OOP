@@ -9,6 +9,8 @@ import UIKit
 
 class PostView: UIView {
     var postView: UIView?
+    var post: Post
+    @IBOutlet weak var likeButton: UIButton!
     var callBack: ((UITextView) -> ())?
     @IBOutlet weak var profileImage: UIImageView! {
         didSet{
@@ -25,19 +27,37 @@ class PostView: UIView {
     @IBOutlet weak var text: SlidableTextView!
     @IBOutlet weak var timeLabel: UILabel!
     required init(post: Post){
+        self.post = post
         super.init(frame: .zero)
-
         getView(post: post)
         setupOutlets(post: post)
-        
     }
 
     required init?(coder: NSCoder) {
         fatalError("Unsupported init")
     }
+    /*
+     remove that to LikeButton
+     */
+    var liked: Bool = false
+    func isLiked(){
+        if liked{
+            if #available(iOS 13.0, *) {
+                likeButton.setImage(UIImage(systemName: "heart.fill")!.withTintColor(.systemPink), for: .normal)
+            } else {
+                // Fallback on earlier versions
+            }
+        } else {
+            if #available(iOS 13.0, *) {
+                likeButton.setImage(UIImage(systemName: "heart")!.withTintColor(.systemPink), for: .normal)
+            } else {
+                // Fallback on earlier versions
+            }
+        }
+        
+    }
     private func setupOutlets(post: Post){
         text.callBack = callBack
-        print(callBack)
         if let postText = post.text{
             let trimed = postText.trimmingCharacters(in: .whitespacesAndNewlines)
             
@@ -100,4 +120,13 @@ class PostView: UIView {
         }
     }
 
+    @IBAction func didPressLike(_ sender: Any) {
+        let likeCommand = LikeCommand(likable: post)
+        likeCommand.execute()
+        liked = !liked
+        isLiked()
+    }
+    
+    @IBAction func didPressComment(_ sender: Any) {
+    }
 }

@@ -24,7 +24,9 @@ class FeedViewController: UIViewController, UITableViewDelegate{
     let concentrate =  FeedViewControllerConcentrate()
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.title = "Типа короче лента"
         title = "Типа короче лента"
+        tabBarController?.title = "Типа короче лента"
         feed.delegate = self
         feed.rowHeight = UITableView.automaticDimension
         feed.estimatedRowHeight = 1400

@@ -9,8 +9,11 @@
 /* Begin PBXBuildFile section */
 		CA038B6D256CA78A009AFA72 /* MediaDirector.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA038B6C256CA78A009AFA72 /* MediaDirector.swift */; };
 		CA038B72256CB4AC009AFA72 /* ContentViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA038B71256CB4AC009AFA72 /* ContentViewBuilder.swift */; };
+		CA3A337325769CA4006C485E /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3A337225769CA4006C485E /* Command.swift */; };
+		CA3A33762577109A006C485E /* LikeCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3A33752577109A006C485E /* LikeCommand.swift */; };
 		CA483F6A2566EC2A00A0EEFE /* VideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA483F692566EC2A00A0EEFE /* VideoView.swift */; };
 		CA483F712566F05A00A0EEFE /* VideoViewConcentrate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA483F702566F05A00A0EEFE /* VideoViewConcentrate.swift */; };
+		CA70B447257A6C3500C90BA0 /* LikeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA70B446257A6C3500C90BA0 /* LikeButton.swift */; };
 		CA7B007F2569498F00C909F4 /* Telegram.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7B007E2569498F00C909F4 /* Telegram.swift */; };
 		CA7B0083256949A400C909F4 /* TelegramAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7B0082256949A400C909F4 /* TelegramAPI.swift */; };
 		CA8757772563E7A300A05FC3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8757762563E7A300A05FC3 /* AppDelegate.swift */; };
@@ -25,6 +28,7 @@
 		CA8757962563EEEF00A05FC3 /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8757952563EEEF00A05FC3 /* PostView.swift */; };
 		CA8757992563EF7700A05FC3 /* BottomPostView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA8757982563EF7700A05FC3 /* BottomPostView.xib */; };
 		CA87579C2563EF8200A05FC3 /* BottomPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA87579B2563EF8200A05FC3 /* BottomPostView.swift */; };
+		CA9BD8B4257973E200B9BEDE /* VKApiLikeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9BD8B3257973E200B9BEDE /* VKApiLikeProtocol.swift */; };
 		CABC47B125758C860016E963 /* SlidableTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABC47B025758C860016E963 /* SlidableTextView.swift */; };
 		CABDEF422564253F00029269 /* MediaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABDEF412564253F00029269 /* MediaView.swift */; };
 		CABDEF45256426D000029269 /* TypesMedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABDEF44256426D000029269 /* TypesMedia.swift */; };
@@ -42,8 +46,11 @@
 /* Begin PBXFileReference section */
 		CA038B6C256CA78A009AFA72 /* MediaDirector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaDirector.swift; sourceTree = "<group>"; };
 		CA038B71256CB4AC009AFA72 /* ContentViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewBuilder.swift; sourceTree = "<group>"; };
+		CA3A337225769CA4006C485E /* Command.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Command.swift; sourceTree = "<group>"; };
+		CA3A33752577109A006C485E /* LikeCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeCommand.swift; sourceTree = "<group>"; };
 		CA483F692566EC2A00A0EEFE /* VideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoView.swift; sourceTree = "<group>"; };
 		CA483F702566F05A00A0EEFE /* VideoViewConcentrate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewConcentrate.swift; sourceTree = "<group>"; };
+		CA70B446257A6C3500C90BA0 /* LikeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeButton.swift; sourceTree = "<group>"; };
 		CA7B007E2569498F00C909F4 /* Telegram.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Telegram.swift; sourceTree = "<group>"; };
 		CA7B0082256949A400C909F4 /* TelegramAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelegramAPI.swift; sourceTree = "<group>"; };
 		CA8757732563E7A300A05FC3 /* VKClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VKClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -60,6 +67,7 @@
 		CA8757952563EEEF00A05FC3 /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
 		CA8757982563EF7700A05FC3 /* BottomPostView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BottomPostView.xib; sourceTree = "<group>"; };
 		CA87579B2563EF8200A05FC3 /* BottomPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomPostView.swift; sourceTree = "<group>"; };
+		CA9BD8B3257973E200B9BEDE /* VKApiLikeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKApiLikeProtocol.swift; sourceTree = "<group>"; };
 		CABC47B025758C860016E963 /* SlidableTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlidableTextView.swift; sourceTree = "<group>"; };
 		CABDEF412564253F00029269 /* MediaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaView.swift; sourceTree = "<group>"; };
 		CABDEF44256426D000029269 /* TypesMedia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypesMedia.swift; sourceTree = "<group>"; };
@@ -85,6 +93,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CA3A337125769C75006C485E /* Command */ = {
+			isa = PBXGroup;
+			children = (
+				CA3A337225769CA4006C485E /* Command.swift */,
+				CA3A33752577109A006C485E /* LikeCommand.swift */,
+			);
+			path = Command;
+			sourceTree = "<group>";
+		};
+		CA70B445257A6C2600C90BA0 /* LikeButton */ = {
+			isa = PBXGroup;
+			children = (
+				CA70B446257A6C3500C90BA0 /* LikeButton.swift */,
+			);
+			path = LikeButton;
+			sourceTree = "<group>";
+		};
 		CA7B007D2569497D00C909F4 /* Telegram */ = {
 			isa = PBXGroup;
 			children = (
@@ -113,6 +138,8 @@
 		CA8757752563E7A300A05FC3 /* VKClient */ = {
 			isa = PBXGroup;
 			children = (
+				CA70B445257A6C2600C90BA0 /* LikeButton */,
+				CA3A337125769C75006C485E /* Command */,
 				CA7B007D2569497D00C909F4 /* Telegram */,
 				CA8757842563E7A700A05FC3 /* Info.plist */,
 				CAFA4E2025680296005768CC /* SupportFiles */,
@@ -231,6 +258,7 @@
 			children = (
 				CAFB23A925665D24008F5CEF /* vk.swift */,
 				CAFB23B125665DB4008F5CEF /* Api.swift */,
+				CA9BD8B3257973E200B9BEDE /* VKApiLikeProtocol.swift */,
 			);
 			path = VK;
 			sourceTree = "<group>";
@@ -327,11 +355,13 @@
 				CA7B007F2569498F00C909F4 /* Telegram.swift in Sources */,
 				CABC47B125758C860016E963 /* SlidableTextView.swift in Sources */,
 				CABDEF45256426D000029269 /* TypesMedia.swift in Sources */,
+				CA9BD8B4257973E200B9BEDE /* VKApiLikeProtocol.swift in Sources */,
 				CACAE73F256DD861008BBAB4 /* TestViewController.swift in Sources */,
 				CABDEF422564253F00029269 /* MediaView.swift in Sources */,
 				CA87577B2563E7A300A05FC3 /* FeedViewController.swift in Sources */,
 				CA87579C2563EF8200A05FC3 /* BottomPostView.swift in Sources */,
 				CAFB23AA25665D24008F5CEF /* vk.swift in Sources */,
+				CA3A337325769CA4006C485E /* Command.swift in Sources */,
 				CAFB23B925668DF1008F5CEF /* FeedTableViewCell.swift in Sources */,
 				CA7B0083256949A400C909F4 /* TelegramAPI.swift in Sources */,
 				CA483F6A2566EC2A00A0EEFE /* VideoView.swift in Sources */,
@@ -342,7 +372,9 @@
 				CAFA4E1A2567F3F8005768CC /* Notification.swift in Sources */,
 				CABDEF48256427C900029269 /* ImageView.swift in Sources */,
 				CAFA4E162567EFF2005768CC /* FeedViewControllerConcentrate.swift in Sources */,
+				CA70B447257A6C3500C90BA0 /* LikeButton.swift in Sources */,
 				CA483F712566F05A00A0EEFE /* VideoViewConcentrate.swift in Sources */,
+				CA3A33762577109A006C485E /* LikeCommand.swift in Sources */,
 				CA8757962563EEEF00A05FC3 /* PostView.swift in Sources */,
 				CA8757792563E7A300A05FC3 /* SceneDelegate.swift in Sources */,
 				CA038B6D256CA78A009AFA72 /* MediaDirector.swift in Sources */,
